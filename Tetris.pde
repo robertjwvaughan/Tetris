@@ -24,6 +24,10 @@ void defaultBackground()
   for (float i = 0; i < 18.0f; i+=1.0f)
   {
     rect(width / 2.0f, (25 + square * i) + (square / 2.0f), square, square);
-    rect(width / 2.0f - square * 5.0f + (square / 2.0f), (25 + square * i) + (square / 2.0f), square, square);
+  }//end for
+  
+  for (float i = 0; i < 10.0f; i+=1.0f)
+  {
+    rect((width / 2.0f - square * 5.0f + (square / 2.0f)) + square * i, (25 + square * i) + (square / 2.0f), square, square);
   }//end for
 }
