@@ -1,11 +1,22 @@
 public class Square
 {
-  private float sW, sH;
-  
-  Square(float sW, float sH)
+  Square(float lengths)
   {
-    this.sW = sW;
-    this.sH = sH;
-  }//end CONSTRUCTOR Square
+    float half = lengths / 2.0f;
+    pushMatrix();
+    translate(-half, -half);
+    
+    square = createShape();
+    square.beginShape();
+    
+    square.vertex(0.0f, 0.0f);
+    square.vertex(0.0f, lengths);
+    square.vertex(0.0f, lengths);
+    square.vertex(lengths, lengths);
+    square.vertex(lengths, 0.0f);
+    
+    square.endShape(CLOSE);
+    popMatrix();
+  }
   
 }//end CLASS Square

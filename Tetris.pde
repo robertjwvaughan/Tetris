@@ -1,14 +1,20 @@
+PShape square;
+
 void setup()
 {
+  //fullScreen();
   size(683, 384);
+  Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
 void draw()
 {
   float widthHalf = width / 2.0f;
   float heightHalf = height / 2.0f;
+  
+  shape(square, 0, 0);
   //10x18
-  System.out.println(mouseX + " " + mouseY);
+  //System.out.println(mouseX + " " + mouseY);
   
   defaultBackground();
 }//end draw
@@ -16,11 +22,12 @@ void draw()
 void defaultBackground()
 {
   noFill();
-  float square = (height - 50) / 18.0f;
+  float square = (height - map(50, 0, 384, 0, height)) / 18.0f;
   rectMode(CENTER);
-  rect(width / 2.0f, height / 2.0f, square * 10.0f, height - 50);
+  rect(width / 2.0f, height / 2.0f, square * 10.0f, height - map(50, 0, 384, 0, height));
   line(0, height / 2.0f, width, height / 2.0f);
   
+  /*
   for (float i = 0; i < 18.0f; i+=1.0f)
   {
     rect(width / 2.0f, (25 + square * i) + (square / 2.0f), square, square);
@@ -30,4 +37,10 @@ void defaultBackground()
   {
     rect((width / 2.0f - square * 5.0f + (square / 2.0f)) + square * i, (25 + square * i) + (square / 2.0f), square, square);
   }//end for
+  */
 }
+
+void Configure()
+{
+  
+}//end Configure()
