@@ -1,10 +1,8 @@
-PShape square;
-
 void setup()
 {
   //fullScreen();
   size(683, 384);
-  Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
+  //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
 void draw()
@@ -12,7 +10,6 @@ void draw()
   float widthHalf = width / 2.0f;
   float heightHalf = height / 2.0f;
   
-  shape(square, 0, 0);
   //10x18
   //System.out.println(mouseX + " " + mouseY);
   

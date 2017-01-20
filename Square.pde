@@ -1,10 +1,13 @@
 public class Square
 {
+  PShape square;
+  
   Square(float lengths)
   {
     float half = lengths / 2.0f;
+    
     pushMatrix();
-    translate(-half, -half);
+    //translate(-half, -half);
     
     square = createShape();
     square.beginShape();
@@ -17,6 +20,5 @@ public class Square
     
     square.endShape(CLOSE);
     popMatrix();
-  }
-  
+  }//end CONSTRUCTOR
 }//end CLASS Square
