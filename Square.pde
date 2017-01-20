@@ -4,7 +4,7 @@ public class Square
   
   Square(float lengths)
   {
-    float half = lengths / 2.0f;
+    //float half = lengths / 2.0f;
     
     pushMatrix();
     //translate(-half, -half);

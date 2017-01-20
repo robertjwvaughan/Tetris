@@ -4,5 +4,6 @@ public class Shapes extends Square
   {
     super(sDimension);
     System.out.println(sDimension);
+    shape(square, 0, 0);
   }
 }
