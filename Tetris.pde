@@ -1,7 +1,7 @@
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
@@ -14,7 +14,6 @@ void draw()
   //System.out.println(mouseX + " " + mouseY);
   
   defaultBackground();
-  Shapes shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end draw
 
 void defaultBackground()
