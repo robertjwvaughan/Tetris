@@ -1,4 +1,6 @@
-class gameTrack
+interface gameTrack
 {
+  void defaultBackground();
   
-}//end CLASS gameTrack
+  void nodeDraw();
+}

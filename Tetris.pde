@@ -7,13 +7,14 @@ void setup()
 
 void draw()
 {
-  float widthHalf = width / 2.0f;
-  float heightHalf = height / 2.0f;
-  
   //10x18
   //System.out.println(mouseX + " " + mouseY);
+  Board backBoard;
   
-  defaultBackground();
+  if (frameCount == 1)
+  {
+    backBoard = new Board((height - map(50, 0, 384, 0, height)) / 18.0f);
+  }//end if
 }//end draw
 
 void defaultBackground()
@@ -39,8 +40,3 @@ void defaultBackground()
   }//end for
   */
 }
-
-void Configure()
-{
-  
-}//end Configure()
