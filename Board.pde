@@ -23,6 +23,12 @@ class Board implements gameTrack
   
   void nodeDraw()
   {
-    
+    for (int i = 0; i < 18; i+=1)
+    {
+      for (int j = 0; i < 10; i+=1)
+      {
+        checkNode[i][j] = true;
+      }
+    }//end for
   }
 }
