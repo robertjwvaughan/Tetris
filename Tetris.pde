@@ -7,8 +7,8 @@ Shapes x;
 
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   backBoard = new Board((height - map(50, 0, 384, 0, height)) / 18.0f);
@@ -20,6 +20,7 @@ void setup()
 
 void draw()
 {
+  background(#D3D3D3);
   //10x18
   //System.out.println(mouseX + " " + mouseY);
   backBoard.defaultBackground();
