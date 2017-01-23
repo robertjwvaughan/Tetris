@@ -3,7 +3,7 @@ float xynodeNode[][][] = new float[2][18][10];
 boolean checkNode[][] = new boolean[18][10];
 Status gameStatus;
 ArrayList<Shapes> liveShape = new ArrayList<Shapes>();
-
+Shapes x;
 
 void setup()
 {
@@ -15,7 +15,7 @@ void setup()
   gameStatus = new Status();
   
   backBoard.nodeDraw();
-  
+  x = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
 void draw()
@@ -23,8 +23,7 @@ void draw()
   //10x18
   //System.out.println(mouseX + " " + mouseY);
   backBoard.defaultBackground();
-  Shapes x = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f);
-    pushMatrix();
+  pushMatrix();
     translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
     
     if (true == (gameStatus.gameState()))
@@ -32,8 +31,10 @@ void draw()
       x.drawSquare();
       gameStatus.changeState();
     }//end if
-    
-    popMatrix();
+    x.drawSquare();
+  popMatrix();
+  
+  System.out.println(x.xy.x +" "+ x.xy.y);
 }//end draw
 
 /*

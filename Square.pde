@@ -4,13 +4,13 @@ public class Square
   PVector xy;
   float x;
   float y;
+  float measure;
   
   Square(float lengths)
   {
     //float half = lengths / 2.0f;
     
-    pushMatrix();
-    //translate(-half, -half);
+    measure = lengths;
     
     square = createShape();
     square.beginShape();
@@ -22,15 +22,21 @@ public class Square
     square.vertex(lengths, 0.0f);
     
     square.endShape(CLOSE);
-    popMatrix();
     
     x = 0.0f;
     y = 0.0f;
+    
+    xy = new PVector(x, y);
   }//end CONSTRUCTOR
   
   void drawSquare()
   {
-    xy = new PVector(0, 0);
-    shape(square, x, y);
+    shape(square, xy.x, xy.y);
   }//end drawSquare()
+  
+  void down()
+  {
+    PVector down = new PVector(0.0f, measure);
+    xy.add(down);
+  }
 }//end CLASS Square
