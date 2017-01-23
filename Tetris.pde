@@ -1,3 +1,6 @@
+//Link list each square and adapt code to link list
+//Create a method in Square that will adapt co-ordinates
+
 Board backBoard;
 float xynodeNode[][][] = new float[2][18][10];
 boolean checkNode[][] = new boolean[18][10];
@@ -7,8 +10,8 @@ Shapes x;
 
 void setup()
 {
-  fullScreen();
-  //size(683, 384);
+  //fullScreen();
+  size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   backBoard = new Board((height - map(50, 0, 384, 0, height)) / 18.0f);
@@ -37,27 +40,3 @@ void draw()
   
   System.out.println(x.xy.x +" "+ x.xy.y);
 }//end draw
-
-/*
-void defaultBackground()
-{
-  noFill();
-  float square = (height - map(50, 0, 384, 0, height)) / 18.0f;
-  rectMode(CENTER);
-  rect(width / 2.0f, height / 2.0f, square * 10.0f, height - map(50, 0, 384, 0, height));
-  line(0, height / 2.0f, width, height / 2.0f);
-  rectMode(CORNER);
-  
-  Shapes shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f);
-  
-  for (float i = 0; i < 18.0f; i+=1.0f)
-  {
-    rect(width / 2.0f, (25 + square * i) + (square / 2.0f), square, square);
-  }//end for
-  
-  for (float i = 0; i < 10.0f; i+=1.0f)
-  {
-    rect((width / 2.0f - square * 5.0f + (square / 2.0f)) + square * i, (25 + square * i) + (square / 2.0f), square, square);
-  }//end for
-}
-*/

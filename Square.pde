@@ -6,6 +6,10 @@ public class Square
   float y;
   float measure;
   
+  Square()
+  {
+  }
+  
   Square(float lengths)
   {
     //float half = lengths / 2.0f;
