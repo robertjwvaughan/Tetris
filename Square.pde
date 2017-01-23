@@ -51,4 +51,48 @@ public class Square
     PVector right = new PVector(measure, 0.0f);
     xy.add(right);
   }
+  
+  boolean boundaryCheck(char type)
+  {
+    switch(type)
+    {
+      case 'l':
+      {
+        if (this.xy.x <= 0)
+        {
+          return false;
+        }//end if
+        else
+        {
+          return true;
+        }//end else
+      }//end CASE left
+      case 'r':
+      {
+        if (this.xy.x >= measure * 9)
+        {
+          return false;
+        }//end if
+        else
+        {
+          return true;
+        }//end else
+      }//end CASE 
+      case 'd':
+      {
+        if (this.xy.y >= measure * 16)
+        {
+          return false;
+        }//end if
+        else
+        {
+          return true;
+        }//end else
+      }//end CASE left
+      default:
+      {
+        return true;
+      }
+    }
+  }
 }//end CLASS Square
