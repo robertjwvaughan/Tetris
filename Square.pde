@@ -39,4 +39,16 @@ public class Square
     PVector down = new PVector(0.0f, measure);
     xy.add(down);
   }
+  
+  void left()
+  {
+    PVector left = new PVector(measure, 0.0f);
+    xy.sub(left);
+  }
+  
+  void right()
+  {
+    PVector right = new PVector(measure, 0.0f);
+    xy.add(right);
+  }
 }//end CLASS Square
