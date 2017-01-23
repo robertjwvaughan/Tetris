@@ -1,20 +1,21 @@
 class Board implements gameTrack
 {
-  public float square;
+  float square;
   
   Board()
   {
-  }//end CONSTRUCTOR Board()
+  }//end CONSTRUCTOR Board(float)
   
-  Board(float sqaure)
+  Board(float param)
   {
-    this.square = square;
+    square = param;
+    //System.out.println(square);
   }//end CONSTRUCTOR Board(float)
   
   void defaultBackground()
   {
     noFill();
-    float square = (height - map(50, 0, 384, 0, height)) / 18.0f;
+    //float square = (height - map(50, 0, 384, 0, height)) / 18.0f;
     rectMode(CENTER);
     rect(width / 2.0f, height / 2.0f, square * 10.0f, height - map(50, 0, 384, 0, height));
     line(0, height / 2.0f, width, height / 2.0f);
@@ -23,12 +24,16 @@ class Board implements gameTrack
   
   void nodeDraw()
   {
-    for (int i = 0; i < 18; i+=1)
+    for (int i = 0; i < 18; i+=1.f)
     {
-      for (int j = 0; i < 10; i+=1)
+      for (int j = 0; j < 10; j+=1.f)
       {
         checkNode[i][j] = true;
+        xynodeNode[0][i][j] = j * square;
+        xynodeNode[1][i][j] = i * square;
+        
+        ellipse(xynodeNode[0][i][j], xynodeNode[1][i][j], 5, 5);
       }
     }//end for
-  }
+  }//end METHOD nodeDraw()
 }

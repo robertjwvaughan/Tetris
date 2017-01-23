@@ -18,6 +18,7 @@ void draw()
   
   pushMatrix();
   translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+  backBoard.nodeDraw();
   popMatrix();
 }//end draw
 
