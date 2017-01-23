@@ -31,7 +31,7 @@ class Board implements gameTrack
         xynodeNode[0][i][j] = j * square;
         xynodeNode[1][i][j] = i * square;
         
-        point(xynodeNode[0][i][j], xynodeNode[1][i][j]);
+        //point(xynodeNode[0][i][j], xynodeNode[1][i][j]);
       }
     }//end for
   }//end METHOD nodeDraw()

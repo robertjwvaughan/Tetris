@@ -1,6 +1,9 @@
 public class Square
 {
   PShape square;
+  PVector xy;
+  float x;
+  float y;
   
   Square(float lengths)
   {
@@ -20,5 +23,14 @@ public class Square
     
     square.endShape(CLOSE);
     popMatrix();
+    
+    x = 0.0f;
+    y = 0.0f;
   }//end CONSTRUCTOR
+  
+  void drawSquare()
+  {
+    xy = new PVector(0, 0);
+    shape(square, x, y);
+  }//end drawSquare()
 }//end CLASS Square
