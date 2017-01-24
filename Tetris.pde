@@ -5,7 +5,7 @@ Board backBoard;
 float xyNode[][][] = new float[2][18][10];
 boolean checkNode[][] = new boolean[18][10];
 Status gameStatus;
-ArrayList<Shapes> liveShape = new ArrayList<Shapes>();
+ArrayList<Square> liveShape = new ArrayList<Square>();
 Shapes x;
 
 void setup()
@@ -36,6 +36,7 @@ void draw()
       gameStatus.changeState();
     }//end if
     x.drawSquare();
+    x.shapeI();
   popMatrix();
   
   System.out.println(x.xy.x +" "+ x.xy.y);

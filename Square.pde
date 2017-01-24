@@ -6,8 +6,9 @@ public class Square
   float y;
   float measure;
   
-  Square()
+  Square(float lengths)
   {
+    measure = lengths;
   }
   
   Square(float lengths, float x, float y)
