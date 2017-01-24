@@ -18,7 +18,7 @@ void setup()
   gameStatus = new Status();
   
   backBoard.nodeDraw();
-  x = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17);
+  x = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 0, 0);
 }//end setup
 
 void draw()

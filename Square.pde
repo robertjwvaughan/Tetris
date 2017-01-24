@@ -10,7 +10,7 @@ public class Square
   {
   }
   
-  Square(float lengths)
+  Square(float lengths, float x, float y)
   {
     //float half = lengths / 2.0f;
     
@@ -27,10 +27,10 @@ public class Square
     
     square.endShape(CLOSE);
     
-    x = 0.0f;
-    y = 0.0f;
+    this.x = x * measure;
+    this.y = y * measure;
     
-    xy = new PVector(x, y);
+    xy = new PVector(this.x, this.y);
   }//end CONSTRUCTOR
   
   void drawSquare()
