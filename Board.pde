@@ -28,11 +28,16 @@ class Board implements gameTrack
       for (int j = 0; j < 10; j+=1.f)
       {
         checkNode[i][j] = true;
-        xynodeNode[0][i][j] = j * square;
-        xynodeNode[1][i][j] = i * square;
+        xyNode[0][i][j] = j * square;
+        xyNode[1][i][j] = i * square;
         
         //point(xynodeNode[0][i][j], xynodeNode[1][i][j]);
       }
     }//end for
   }//end METHOD nodeDraw()
+  
+  void cellIndex()
+  {
+    
+  }//end METHOD cellIndex()
 }

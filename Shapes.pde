@@ -7,37 +7,37 @@ public class Shapes extends Square
     //shape(square, 0, 0);
   }
   
-  void S()
+  void shapeI()
+  {
+    
+  }//end METHOD I
+  
+  void shapeS()
   {
     
   }
   
-  void J()
+  void shapeJ()
   {
     
   }
   
-  void I()
+  void shapeZ()
   {
     
   }
   
-  void Z()
+  void shapeL()
   {
     
   }
   
-  void L()
+  void shapeT()
   {
     
   }
   
-  void T()
-  {
-    
-  }
-  
-  void O()
+  void shapeO()
   {
     
   }

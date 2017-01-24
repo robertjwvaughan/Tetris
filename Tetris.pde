@@ -2,7 +2,7 @@
 //Create a method in Square that will adapt co-ordinates
 
 Board backBoard;
-float xynodeNode[][][] = new float[2][18][10];
+float xyNode[][][] = new float[2][18][10];
 boolean checkNode[][] = new boolean[18][10];
 Status gameStatus;
 ArrayList<Shapes> liveShape = new ArrayList<Shapes>();
