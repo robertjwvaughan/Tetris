@@ -35,9 +35,4 @@ class Board implements gameTrack
       }
     }//end for
   }//end METHOD nodeDraw()
-  
-  void cellIndex(int x, int y)
-  {
-    
-  }//end METHOD cellIndex()
 }

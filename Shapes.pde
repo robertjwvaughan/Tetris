@@ -17,38 +17,57 @@ public class Shapes extends Square
   
   void shapeI()
   {
-    
     liveShape.add(new Square(measure, 3, 0));
-    liveShape.get(0).drawSquare();
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 5, 0));
+    liveShape.add(new Square(measure, 6, 0));
   }//end METHOD I
   
   void shapeS()
   {
-    
+    liveShape.add(new Square(measure, 3, 1));
+    liveShape.add(new Square(measure, 4, 1));
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 5, 0));
   }
   
   void shapeJ()
   {
-    
+    liveShape.add(new Square(measure, 3, 0));
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 5, 0));
+    liveShape.add(new Square(measure, 5, 1));
   }
   
   void shapeZ()
   {
-    
+    liveShape.add(new Square(measure, 3, 0));
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 4, 1));
+    liveShape.add(new Square(measure, 5, 1));
   }
   
   void shapeL()
   {
-    
+    liveShape.add(new Square(measure, 3, 1));
+    liveShape.add(new Square(measure, 3, 0));
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 5, 0));
   }
   
   void shapeT()
   {
-    
+    liveShape.add(new Square(measure, 3, 0));
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 4, 1));
+    liveShape.add(new Square(measure, 5, 0));    
   }
   
   void shapeO()
   {
-    
+    liveShape.add(new Square(measure, 4, 0));
+    liveShape.add(new Square(measure, 4, 1));
+    liveShape.add(new Square(measure, 5, 0));
+    liveShape.add(new Square(measure, 5, 1));
   }
 }

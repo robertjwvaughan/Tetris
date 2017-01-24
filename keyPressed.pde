@@ -2,24 +2,22 @@ void keyPressed()
 {
   if ((key == 's' || key == 'S'))
   {
-    if (true == x.boundaryCheck('d'))
+    int boolCheck = 0;
+    
+    for (int i = 0; i < liveShape.size(); i++)
     {
-      x.down();
-    }
-  }//end if
-  if ((key == 'a' || key == 'A'))
-  {
-    if (true == x.boundaryCheck('l'))
+      if (false == liveShape.get(i).boundaryCheck('d'))
+      {
+        boolCheck++;
+      }//end if
+    }//end for
+    
+    if (boolCheck == 0)
     {
-      x.left();
-    }
+      for (int i = 0; i < liveShape.size(); i++)
+      {
+        liveShape.get(i).down();
+      }//end for
+    }//end if
   }//end if
-  if ((key == 'd' || key == 'D'))
-  {
-    if (true == x.boundaryCheck('r'))
-    {
-      x.right();
-    }
-  }//end if
-  
 }//end keyPressed

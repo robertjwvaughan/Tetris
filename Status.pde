@@ -1,15 +1,15 @@
 class Status
 {
-  private boolean createMode;
+  private boolean playing;
   
   Status()
   {
-    createMode = true;
+    playing = true;
   }//end CONSTRUCTOR Status
   
   boolean gameState()
   {
-    if (createMode == true)
+    if (playing == true)
     {
       return true;
     }
@@ -21,13 +21,13 @@ class Status
   
   void changeState()
   {
-    if (createMode == true)
+    if (playing == true)
     {
-      createMode = false;
+      playing = false;
     }
     else
     {
-      createMode = true;
+      playing = true;
     }//end else
   }//end METHOD gameState()
 }//enn CLASS Status
