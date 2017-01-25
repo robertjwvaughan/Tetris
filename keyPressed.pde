@@ -40,7 +40,7 @@ void keyPressed()
       }//end for
     }//end if
   }//end if
-   if ((key == 'd' || key == 'D'))
+  if ((key == 'd' || key == 'D'))
   {
     int boolCheck = 0;
     
@@ -60,4 +60,5 @@ void keyPressed()
       }//end for
     }//end if
   }//end if
+  
 }//end keyPressed

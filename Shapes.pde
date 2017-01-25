@@ -15,6 +15,48 @@ public class Shapes extends Square
     //shape(square, 0, 0);
   }
   
+  void indexCall(int index)
+  {
+    switch(index)
+    {
+      case 0:
+      {
+        shapeS();
+        break;
+      }//end CASE
+      case 1:
+      {
+        shapeJ();
+        break;
+      }//end CASE
+      case 2:
+      {
+        shapeI();
+        break;
+      }//end CASE
+      case 3:
+      {
+        shapeZ();
+        break;
+      }//end CASE
+      case 4:
+      {
+        shapeL();
+        break;
+      }//end CASE
+      case 5:
+      {
+        shapeT();
+        break;
+      }//end CASE
+      case 6:
+      {
+        shapeO();
+        break;
+      }//end CASE
+    }//end switch
+  }//end indexCall()
+  
   void shapeI()
   {
     liveShape.add(new Square(measure, 3, 0));

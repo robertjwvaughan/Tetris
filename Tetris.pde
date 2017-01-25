@@ -36,7 +36,7 @@ void draw()
       pushMatrix();
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         liveShape.clear();
-        shape.shapeT();
+        gameStatus.chooseShape();
       popMatrix();
       
       System.out.println(shape.xy.x +" "+ shape.xy.y);
@@ -62,12 +62,3 @@ void draw()
     }
   }//end switch
 }//end draw
-
-void drawShape(Square x)
-{
-  for (int i = 0; i < liveShape.size(); i++)
-  {
-    x.drawSquare();
-    System.out.println(i);
-  }//end for
-}//end METHOD drawShape

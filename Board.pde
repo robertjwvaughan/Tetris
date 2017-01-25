@@ -30,7 +30,6 @@ class Board implements gameTrack
         checkNode[i][j] = true;
         xyNode[0][i][j] = j * square;
         xyNode[1][i][j] = i * square;
-        
         //point(xynodeNode[0][i][j], xynodeNode[1][i][j]);
       }
     }//end for
