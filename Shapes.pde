@@ -122,4 +122,34 @@ public class Shapes extends Square
   {
     
   }
+  
+  void rotateS()
+  {
+    
+  }
+  
+  void rotateJ()
+  {
+    
+  }
+  
+  void rotatesZ()
+  {
+    
+  }
+  
+  void rotateL()
+  {
+    
+  }
+  
+  void rotateT()
+  {
+    
+  }
+  
+  void rotateO()
+  {
+    
+  }
 }
