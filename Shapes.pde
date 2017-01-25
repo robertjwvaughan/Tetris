@@ -112,4 +112,14 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0));
     liveShape.add(new Square(measure, 5, 1));
   }
+  
+  void rotateShape(int i)
+  {
+    
+  }
+  
+  void rotateI()
+  {
+    
+  }
 }
