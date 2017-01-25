@@ -46,4 +46,9 @@ class Status
     
     shape.indexCall(shapeIndex);
   }//end chooseShape()
+  
+  int getShapeIndex()
+  {
+    return shapeIndex;
+  }
 }//enn CLASS Status

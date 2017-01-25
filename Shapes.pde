@@ -113,10 +113,40 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 1));
   }
   
-  void rotateShape(int i)
+  void rotateShape()
   {
-    
-  }
+    switch(gameStatus.getShapeIndex())
+    {
+      case 0:
+      {
+        rotateS();
+      }//end CASE
+      case 1:
+      {
+        rotateJ();
+      }//end CASE
+      case 2:
+      {
+        rotateI();
+      }//end CASE
+      case 3:
+      {
+        rotatesZ();
+      }//end CASE
+      case 4:
+      {
+        rotateL();
+      }//end CASE
+      case 5:
+      {
+        rotateT();
+      }//end CASE
+      case 6:
+      {
+        rotateO();
+      }//end CASE
+    }//end switch
+  }//end rotate
   
   void rotateI()
   {
