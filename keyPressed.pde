@@ -1,5 +1,8 @@
 void keyPressed()
 {
+  /*
+    If s is pressed, the shape will go down
+  */
   if ((key == 's' || key == 'S'))
   {
     int boolCheck = 0;
@@ -20,6 +23,10 @@ void keyPressed()
       }//end for
     }//end if
   }//end if
+  
+  /*
+    If a is pressed, the shapes vectors head towards right
+  */
   if ((key == 'a' || key == 'A'))
   {
     int boolCheck = 0;
@@ -40,6 +47,10 @@ void keyPressed()
       }//end for
     }//end if
   }//end if
+  
+  /*
+    If d is pressed, the shapes vectors head towards right
+  */
   if ((key == 'd' || key == 'D'))
   {
     int boolCheck = 0;
