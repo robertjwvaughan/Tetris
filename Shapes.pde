@@ -2,6 +2,9 @@ public class Shapes extends Square
 {
   float measure;
   
+  /*
+    Constructor that passes values to the 
+  */
   Shapes(float sDimension)
   {
     super(sDimension);
