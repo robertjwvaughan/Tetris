@@ -17,7 +17,7 @@ class Board implements gameTrack
     noFill();
     //float square = (height - map(50, 0, 384, 0, height)) / 18.0f;
     rectMode(CENTER);
-    rect(width / 2.0f, height / 2.0f, square * 10.0f, height - map(50, 0, 384, 0, height));
+    rect(width / 2.0f, height / 2.0f, square * 10.0f, height - (map(50, 0, 384, 0, height)));
     rectMode(CORNER);
   }//end METHOD drawBackground()
   

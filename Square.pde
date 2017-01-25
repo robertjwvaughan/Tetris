@@ -34,6 +34,11 @@ public class Square
     xy = new PVector(this.x, this.y);
   }//end CONSTRUCTOR
   
+  float getLength()
+  {
+    return measure;
+  }//end VOID getLength()
+  
   void drawSquare()
   {
     shape(square, xy.x, xy.y);

@@ -150,7 +150,10 @@ public class Shapes extends Square
   
   void rotateI()
   {
-    
+    if(liveShape.get(0).xy.x <= liveShape.get(1).xy.x - liveShape.get(1).getLength())
+    {
+      System.out.println("Hi");
+    }
   }
   
   void rotateS()

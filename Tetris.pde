@@ -46,7 +46,8 @@ void draw()
       pushMatrix();
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         liveShape.clear();
-        gameStatus.chooseShape();
+        //gameStatus.chooseShape();
+        shape.shapeI();
       popMatrix();
       
       System.out.println(shape.xy.x +" "+ shape.xy.y);
@@ -64,6 +65,7 @@ void draw()
           liveShape.get(i).drawSquare();
         }//end for
       popMatrix();
+      
       changeScreen = 1;
     }
     case 2:
