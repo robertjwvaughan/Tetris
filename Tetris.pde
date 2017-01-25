@@ -1,5 +1,13 @@
-//Link list each square and adapt code to link list
-//Create a method in Square that will adapt co-ordinates
+//#CC00FF - Pink (J)
+//#FF6600 - Orange (I)
+//#66CCFF - Turk (S)
+//#FF0000 - Red (O)
+//#0000FF - Blue (L)
+//#00FF00 - Green (Z)
+//#FFFF00 - Yellow (T)
+
+//#CADCF0
+
 
 Board backBoard;
 float xyNode[][][] = new float[2][18][10];
@@ -21,6 +29,8 @@ void setup()
   backBoard.nodeDraw();
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17);
   changeScreen = 0;
+  
+  background(#CADCF0);
 }//end setup
 
 void draw()
@@ -29,7 +39,7 @@ void draw()
   {
     case 0:
     {
-      background(#D3D3D3);
+      background(#CADCF0);
       //10x18
       //System.out.println(mouseX + " " + mouseY);
       backBoard.defaultBackground();
@@ -44,7 +54,7 @@ void draw()
     }//end case 0
     case 1:
     {
-      background(#D3D3D3);
+      background(#CADCF0);
       
       backBoard.defaultBackground();
       pushMatrix();
