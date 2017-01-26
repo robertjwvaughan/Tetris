@@ -73,6 +73,6 @@ void keyPressed()
   }//end if
   if ((key == 'w' || key == 'W'))
   {
-    shape.rotateI();
+    shape.rotateS();
   }//end if
 }//end keyPressed

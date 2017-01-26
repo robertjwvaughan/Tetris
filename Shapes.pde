@@ -81,10 +81,10 @@ public class Shapes extends Square
   */
   void shapeS()
   {
-    liveShape.add(new Square(measure, 3, 1));
-    liveShape.add(new Square(measure, 4, 1));
     liveShape.add(new Square(measure, 4, 0));
     liveShape.add(new Square(measure, 5, 0));
+    liveShape.add(new Square(measure, 3, 1));
+    liveShape.add(new Square(measure, 4, 1));
   }
   
   /*
@@ -215,7 +215,27 @@ public class Shapes extends Square
   */
   void rotateS()
   {
-    
+    if(liveShape.get(0).xy.x == liveShape.get(1).xy.x - liveShape.get(1).getLength())
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(1).xy.x -= measure * 2;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y += measure;
+      System.out.println("1");
+    }//end if
+    else
+    {
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(1).xy.x += measure * 2;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y -= measure;
+    }
   }
   
   /*
