@@ -137,8 +137,8 @@ public class Shapes extends Square
   {
     liveShape.add(new Square(measure, 3, 0, #FFFF00));
     liveShape.add(new Square(measure, 4, 0, #FFFF00));
-    liveShape.add(new Square(measure, 4, 1, #FFFF00));
     liveShape.add(new Square(measure, 5, 0, #FFFF00));
+    liveShape.add(new Square(measure, 4, 1, #FFFF00));
     
     checkRotate = 0;
   }
@@ -187,10 +187,6 @@ public class Shapes extends Square
       case 5:
       {
         rotateT();
-      }//end CASE
-      case 6:
-      {
-        rotateO();
       }//end CASE
     }//end switch
   }//end rotate
@@ -407,14 +403,56 @@ public class Shapes extends Square
   */
   void rotateT()
   {
-    
-  }
-  
-  /*
-    Method that will rotate shape O by changing each squares PVectors co-ordinates
-  */
-  void rotateO()
-  {
-    
-  }
+    if(checkRotate == 0)
+    {
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y += measure;
+      
+      liveShape.get(3).xy.x -= measure;
+      liveShape.get(3).xy.y -= measure;
+      System.out.println("1");
+      
+      checkRotate++;
+    }//end if
+    else if(checkRotate == 1)
+    {
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y -= measure;
+      
+      liveShape.get(3).xy.x += measure;
+      liveShape.get(3).xy.y -= measure;
+      
+      checkRotate++;
+    }//end else if
+    else if(checkRotate == 2)
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y -= measure;
+      
+      liveShape.get(3).xy.y += measure * 2.0f;
+      
+      checkRotate++;
+    }//end else if
+    else if(checkRotate == 3)
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y += measure;
+      
+      liveShape.get(3).xy.x -= measure * 2.0f;
+      
+      checkRotate = 0;
+    }//end else if
+  }//end 
 }
