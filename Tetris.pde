@@ -60,7 +60,7 @@ void draw()
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         liveShape.clear();
         //gameStatus.chooseShape();
-        shape.shapeZ();
+        shape.shapeL();
       popMatrix();
       
       System.out.println(shape.xy.x +" "+ shape.xy.y);
