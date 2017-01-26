@@ -1,7 +1,5 @@
 public class Shapes extends Square
 {
-  float measure;
-  
   /*
     Constructor that passes values to the classes super
     constructor
@@ -18,7 +16,6 @@ public class Shapes extends Square
   Shapes(float sDimension, float x, float y)
   {
     super(sDimension, x, y);
-    measure = sDimension;
     //System.out.println(sDimension);
     //shape(square, 0, 0);
   }
@@ -189,9 +186,27 @@ public class Shapes extends Square
   */
   void rotateI()
   {
-    if(liveShape.get(0).xy.x <= liveShape.get(1).xy.x - liveShape.get(1).getLength())
+    if(liveShape.get(0).xy.x == liveShape.get(1).xy.x - liveShape.get(1).getLength())
     {
-      System.out.println("Hi");
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y += measure;
+      
+      liveShape.get(3).xy.x -= measure * 2.0f;
+      liveShape.get(3).xy.y += measure * 2.0f;
+    }
+    else
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y -= measure;
+      
+      liveShape.get(3).xy.x += measure * 2.0f;
+      liveShape.get(3).xy.y -= measure * 2.0f;
     }
   }
   
