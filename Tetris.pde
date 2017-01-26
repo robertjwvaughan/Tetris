@@ -23,6 +23,8 @@ boolean checkNode[][] = new boolean[18][10];//Cell boolean check
 
 int changeScreen;
 
+int checkRotate;
+
 void setup()
 {
   //fullScreen();
@@ -35,7 +37,7 @@ void setup()
   
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
-  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17);
+  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255));
   changeScreen = 0;
   
   background(#CADCF0);
@@ -58,7 +60,7 @@ void draw()
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         liveShape.clear();
         //gameStatus.chooseShape();
-        shape.shapeS();
+        shape.shapeZ();
       popMatrix();
       
       System.out.println(shape.xy.x +" "+ shape.xy.y);

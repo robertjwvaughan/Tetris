@@ -16,11 +16,13 @@ public class Square
     Constructor that passes the length of the square and PVector
     co-ordinates
   */
-  Square(float lengths, float x, float y)
+  Square(float lengths, float x, float y, color col)
   {
     //float half = lengths / 2.0f;
     
     measure = lengths;
+    
+    fill(col);
     
     //Beginning to draw the square PShape
     square = createShape();

@@ -13,9 +13,9 @@ public class Shapes extends Square
     Constructor that passes values to the classes super
     constructor
   */
-  Shapes(float sDimension, float x, float y)
+  Shapes(float sDimension, float x, float y, color col)
   {
-    super(sDimension, x, y);
+    super(sDimension, x, y, col);
     //System.out.println(sDimension);
     //shape(square, 0, 0);
   }
@@ -70,10 +70,12 @@ public class Shapes extends Square
   */
   void shapeI()
   {
-    liveShape.add(new Square(measure, 3, 0));
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 5, 0));
-    liveShape.add(new Square(measure, 6, 0));
+    liveShape.add(new Square(measure, 3, 0, #FF6600));
+    liveShape.add(new Square(measure, 4, 0, #FF6600));
+    liveShape.add(new Square(measure, 5, 0, #FF6600));
+    liveShape.add(new Square(measure, 6, 0, #FF6600));
+    
+    checkRotate = 0;
   }//end METHOD I
   
   /*
@@ -81,10 +83,12 @@ public class Shapes extends Square
   */
   void shapeS()
   {
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 5, 0));
-    liveShape.add(new Square(measure, 3, 1));
-    liveShape.add(new Square(measure, 4, 1));
+    liveShape.add(new Square(measure, 4, 0, #66CCFF));
+    liveShape.add(new Square(measure, 5, 0, #66CCFF));
+    liveShape.add(new Square(measure, 3, 1, #66CCFF));
+    liveShape.add(new Square(measure, 4, 1, #66CCFF));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -92,10 +96,12 @@ public class Shapes extends Square
   */
   void shapeJ()
   {
-    liveShape.add(new Square(measure, 3, 0));
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 5, 0));
-    liveShape.add(new Square(measure, 5, 1));
+    liveShape.add(new Square(measure, 3, 0, #CC00FF));
+    liveShape.add(new Square(measure, 4, 0, #CC00FF));
+    liveShape.add(new Square(measure, 5, 0, #CC00FF));
+    liveShape.add(new Square(measure, 5, 1, #CC00FF));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -103,10 +109,12 @@ public class Shapes extends Square
   */
   void shapeZ()
   {
-    liveShape.add(new Square(measure, 3, 0));
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 4, 1));
-    liveShape.add(new Square(measure, 5, 1));
+    liveShape.add(new Square(measure, 3, 0, #00FF00));
+    liveShape.add(new Square(measure, 4, 0, #00FF00));
+    liveShape.add(new Square(measure, 4, 1, #00FF00));
+    liveShape.add(new Square(measure, 5, 1, #00FF00));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -114,10 +122,12 @@ public class Shapes extends Square
   */
   void shapeL()
   {
-    liveShape.add(new Square(measure, 3, 1));
-    liveShape.add(new Square(measure, 3, 0));
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 5, 0));
+    liveShape.add(new Square(measure, 3, 1, #0000FF));
+    liveShape.add(new Square(measure, 3, 0, #0000FF));
+    liveShape.add(new Square(measure, 4, 0, #0000FF));
+    liveShape.add(new Square(measure, 5, 0, #0000FF));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -125,10 +135,12 @@ public class Shapes extends Square
   */
   void shapeT()
   {
-    liveShape.add(new Square(measure, 3, 0));
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 4, 1));
-    liveShape.add(new Square(measure, 5, 0));    
+    liveShape.add(new Square(measure, 3, 0, #FFFF00));
+    liveShape.add(new Square(measure, 4, 0, #FFFF00));
+    liveShape.add(new Square(measure, 4, 1, #FFFF00));
+    liveShape.add(new Square(measure, 5, 0, #FFFF00));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -136,10 +148,12 @@ public class Shapes extends Square
   */
   void shapeO()
   {
-    liveShape.add(new Square(measure, 4, 0));
-    liveShape.add(new Square(measure, 4, 1));
-    liveShape.add(new Square(measure, 5, 0));
-    liveShape.add(new Square(measure, 5, 1));
+    liveShape.add(new Square(measure, 4, 0, #FF0000));
+    liveShape.add(new Square(measure, 4, 1, #FF0000));
+    liveShape.add(new Square(measure, 5, 0, #FF0000));
+    liveShape.add(new Square(measure, 5, 1, #FF0000));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -186,7 +200,7 @@ public class Shapes extends Square
   */
   void rotateI()
   {
-    if(liveShape.get(0).xy.x == liveShape.get(1).xy.x - liveShape.get(1).getLength())
+    if(checkRotate == 0)
     {
       liveShape.get(0).xy.x += measure;
       liveShape.get(0).xy.y -= measure;
@@ -196,6 +210,8 @@ public class Shapes extends Square
       
       liveShape.get(3).xy.x -= measure * 2.0f;
       liveShape.get(3).xy.y += measure * 2.0f;
+      
+      checkRotate++;
     }
     else
     {
@@ -207,6 +223,8 @@ public class Shapes extends Square
       
       liveShape.get(3).xy.x += measure * 2.0f;
       liveShape.get(3).xy.y -= measure * 2.0f;
+      
+      checkRotate = 0;
     }
   }
   
@@ -215,7 +233,7 @@ public class Shapes extends Square
   */
   void rotateS()
   {
-    if(liveShape.get(0).xy.x == liveShape.get(1).xy.x - liveShape.get(1).getLength())
+    if(checkRotate == 0)
     {
       liveShape.get(0).xy.x -= measure;
       liveShape.get(0).xy.y += measure;
@@ -224,7 +242,8 @@ public class Shapes extends Square
       
       liveShape.get(2).xy.x += measure;
       liveShape.get(2).xy.y += measure;
-      System.out.println("1");
+      
+      checkRotate++;
     }//end if
     else
     {
@@ -235,6 +254,8 @@ public class Shapes extends Square
       
       liveShape.get(2).xy.x -= measure;
       liveShape.get(2).xy.y -= measure;
+      
+      checkRotate = 0;
     }
   }
   
@@ -243,15 +264,86 @@ public class Shapes extends Square
   */
   void rotateJ()
   {
-    
-  }
+    if(checkRotate == 0)
+    {
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y += measure;
+      
+      liveShape.get(3).xy.x -= measure * 2.0f;
+      System.out.println("1");
+      
+      checkRotate++;
+    }//end if
+    else if(checkRotate == 1)
+    {
+      liveShape.get(0).xy.x += measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(2).xy.x -= measure;
+      liveShape.get(2).xy.y -= measure;
+      
+      liveShape.get(3).xy.y -= measure * 2.0f;
+      
+      checkRotate++;
+    }//end else if
+    else if(checkRotate == 2)
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y += measure;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y -= measure;
+      
+      liveShape.get(3).xy.x += measure * 2.0f;
+      
+      checkRotate++;
+    }//end else if
+    else if(checkRotate == 3)
+    {
+      liveShape.get(0).xy.x -= measure;
+      liveShape.get(0).xy.y -= measure;
+      
+      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.y += measure;
+      
+      liveShape.get(3).xy.y += measure * 2.0f;
+      
+      checkRotate = 0;
+    }//end else if
+  }//end MENTHOD rotateJ
   
   /*
     Method that will rotate shape Z by changing each squares PVectors co-ordinates
   */
   void rotatesZ()
   {
-    
+    if (checkRotate == 0)
+    {
+      liveShape.get(0).xy.x += measure * 2.0f;
+      
+      liveShape.get(1).xy.x += measure;
+      liveShape.get(1).xy.y += measure;
+      
+      liveShape.get(3).xy.x -= measure;
+      liveShape.get(3).xy.y += measure;
+      
+      checkRotate++;
+    }//end if
+    else
+    {
+      liveShape.get(0).xy.x -= measure * 2.0f;
+      
+      liveShape.get(1).xy.x -= measure;
+      liveShape.get(1).xy.y -= measure;
+      
+      liveShape.get(3).xy.x += measure;
+      liveShape.get(3).xy.y -= measure;
+      
+      checkRotate = 0;
+    }
   }
   
   /*
