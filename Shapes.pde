@@ -438,7 +438,8 @@ public class Shapes extends Square
       liveShape.get(2).xy.x += measure;
       liveShape.get(2).xy.y -= measure;
       
-      liveShape.get(3).xy.y += measure * 2.0f;
+      liveShape.get(3).xy.x += measure;
+      liveShape.get(3).xy.y += measure;
       
       checkRotate++;
     }//end else if
@@ -450,7 +451,8 @@ public class Shapes extends Square
       liveShape.get(2).xy.x += measure;
       liveShape.get(2).xy.y += measure;
       
-      liveShape.get(3).xy.x -= measure * 2.0f;
+      liveShape.get(3).xy.x -= measure;
+      liveShape.get(3).xy.y += measure;
       
       checkRotate = 0;
     }//end else if
