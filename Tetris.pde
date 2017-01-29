@@ -49,10 +49,9 @@ void draw()
   {
     //Case the creates a new shape to be drawn on screen
     case 0:
-    {
+    { 
       background(#CADCF0);
       backBoard.defaultBackground();
-      
       pushMatrix();
         
         //Translates the sketch so the boards edge is (0,0)

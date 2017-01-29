@@ -107,6 +107,7 @@ public class Square
       {
         if (this.xy.y >= measure * 16)
         {
+          changeScreen = 0;
           return false;
         }//end if
         else
