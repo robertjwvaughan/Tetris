@@ -37,10 +37,8 @@ class Board implements gameTrack
       for (int j = 0; j < 10; j+=1.f)
       {
         //Cell is set to true for no square is on it
-        checkNode[i][j] = true;
-        xyNode[0][i][j] = j * square;
-        xyNode[1][i][j] = i * square;
-        //point(xynodeNode[0][i][j], xynodeNode[1][i][j]);
+        cells[i][j] = new Cell(j * square, i * square);
+        System.out.println(j * square + " " +i * square);
       }
     }//end for
   }//end METHOD nodeDraw()

@@ -18,8 +18,7 @@ Shapes shape;//Shape object
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
 
-float xyNode[][][] = new float[2][18][10];//Grid co-ordinates
-boolean checkNode[][] = new boolean[18][10];//Cell boolean check
+Cell cells[][] = new Cell[18][18];
 
 int changeScreen;
 
