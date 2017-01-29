@@ -66,4 +66,18 @@ class Status
   {
     return shapeIndex;
   }
+  
+  void swapShapes()
+  {
+    for(int i = 17; i >= 0; i--)
+    {
+      for (int j = 9; j >= 0 ; j--)
+      {
+        for (int k = 0; k < liveShape.size(); k++)
+        {
+          
+        }//end for
+      }//end for
+    }//end for
+  }//end swapShapes()
 }//enn CLASS Status

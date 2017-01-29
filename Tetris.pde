@@ -17,8 +17,9 @@ Shapes shape;//Shape object
 
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
+ArrayList<Square> deadShape = new ArrayList<Square>();
 
-Cell cells[][] = new Cell[18][18];
+Cell cells[][] = new Cell[18][10];
 
 int changeScreen;
 
@@ -44,7 +45,7 @@ void setup()
 
 void draw()
 {
-  //Switch statement to track 
+  //Switch statement to track
   switch(changeScreen)
   {
     //Case the creates a new shape to be drawn on screen
@@ -57,11 +58,15 @@ void draw()
         //Translates the sketch so the boards edge is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         liveShape.clear();
-        //gameStatus.chooseShape();
-        shape.shapeT();
+        gameStatus.chooseShape();
+        
+        for (int i = 0; i < deadShape.size(); i++)
+        {
+          deadShape.get(i).drawSquare();
+        }//end for
       popMatrix();
       
-      System.out.println(shape.xy.x +" "+ shape.xy.y);
+      //System.out.println(shape.xy.x +" "+ shape.xy.y);
       changeScreen = 1;
     }//end case 0
     case 1:
@@ -73,11 +78,16 @@ void draw()
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
-        
+        backBoard.nodeDraw();
         //Redraws the current shape after each frame
         for (int i = 0; i < liveShape.size(); i++)
         {
           liveShape.get(i).drawSquare();
+        }//end for
+        
+        for (int i = 0; i < deadShape.size(); i++)
+        {
+          deadShape.get(i).drawSquare();
         }//end for
         
       popMatrix();
@@ -87,6 +97,6 @@ void draw()
     case 2:
     {
       
-    }
+    }//end case 2 
   }//end switch
 }//end draw

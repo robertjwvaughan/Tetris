@@ -108,6 +108,7 @@ public class Square
         if (this.xy.y >= measure * 16)
         {
           changeScreen = 0;
+          gameStatus.swapShapes();
           return false;
         }//end if
         else

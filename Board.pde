@@ -38,7 +38,7 @@ class Board implements gameTrack
       {
         //Cell is set to true for no square is on it
         cells[i][j] = new Cell(j * square, i * square);
-        System.out.println(j * square + " " +i * square);
+        rect(j * square, i * square, square, square);
       }
     }//end for
   }//end METHOD nodeDraw()

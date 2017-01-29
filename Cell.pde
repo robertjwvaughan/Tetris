@@ -2,6 +2,7 @@ class Cell
 {
   boolean active;
   PVector ordinates;
+  Square x;
   
   Cell()
   {
