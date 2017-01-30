@@ -44,17 +44,7 @@ void setup()
 }//end setup
 
 void draw()
-{
-  PVector test = new PVector(0, 0);
-  PVector test2 = new PVector(0, ((height - map(50, 0, 384, 0, height)) / 18.0f));
-  
-  for (int i = 0; i < 18; i++)
-  {
-    System.out.println((i + 1) + " " + test.y +" "+ cells[i][0].ordinates.y);
-    test.add(test2);
-  }
-  stop();
-  
+{ 
   //Switch statement to track
   switch(changeScreen)
   {

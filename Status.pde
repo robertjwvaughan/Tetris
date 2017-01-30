@@ -69,12 +69,20 @@ class Status
   
   void swapShapes()
   {
-    for(int i = 9; i >= 0; i--)
+    for (int i = 17; i >= 0; i--)
     {
-      if (liveShape.get(0).xy.y == cells[17][i].ordinates.y)
+      for (int j = 0; j < 10; j++)
       {
-        System.out.println("GRKLJDVSM");
-      }//end if
+        for (int k = 0; k < liveShape.size(); k++)
+        {
+          if ((int)liveShape.get(k).xy.x == (int)cells[i][j].ordinates.x && (int)liveShape.get(k).xy.y == (int)cells[i][j].ordinates.y)
+          {
+            System.out.println("GRKLJDVSM");
+            deadShape.add(liveShape.get(k));
+          }//end if
+        }//end if
+      }//end for
     }//end for
+    System.out.println(deadShape.size());
   }//end swapShapes()
 }//enn CLASS Status

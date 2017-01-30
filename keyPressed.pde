@@ -22,6 +22,10 @@ void keyPressed()
         liveShape.get(i).down();
       }//end for
     }//end if
+    else
+    {
+      gameStatus.swapShapes();
+    }//end else
   }//end if
   
   /*
