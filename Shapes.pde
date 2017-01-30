@@ -252,6 +252,7 @@ public class Shapes extends Square
   void rotateS()
   {
     float addX = 0;
+    
     if(checkRotate == 0)
     {
       liveShape.get(0).xy.x -= measure;
@@ -291,49 +292,89 @@ public class Shapes extends Square
   {
     if(checkRotate == 0)
     {
+      float addY = 0;
+      
+      if ((int)liveShape.get(0).xy.y - (int)measure < 0)
+      {
+        addY += measure;
+      }//end if
+      
       liveShape.get(0).xy.x += measure;
-      liveShape.get(0).xy.y -= measure;
+      liveShape.get(0).xy.y -= measure - addY;
+      
+      liveShape.get(1).xy.y += addY;
       
       liveShape.get(2).xy.x -= measure;
-      liveShape.get(2).xy.y += measure;
+      liveShape.get(2).xy.y += measure + addY;
       
       liveShape.get(3).xy.x -= measure * 2.0f;
+      liveShape.get(3).xy.y += addY;
       System.out.println("1");
       
       checkRotate++;
     }//end if
     else if(checkRotate == 1)
     {
-      liveShape.get(0).xy.x += measure;
+      float addX = 0;
+      
+      if ((int)liveShape.get(0).xy.x + (int)measure > (int)(measure * 9))
+      {
+        addX += measure;
+      }//end if
+      
+      liveShape.get(0).xy.x += measure - addX;
       liveShape.get(0).xy.y += measure;
       
-      liveShape.get(2).xy.x -= measure;
+      liveShape.get(1).xy.x -= addX;
+      
+      liveShape.get(2).xy.x -= measure + addX;
       liveShape.get(2).xy.y -= measure;
       
+      liveShape.get(3).xy.x -= addX;
       liveShape.get(3).xy.y -= measure * 2.0f;
       
       checkRotate++;
     }//end else if
     else if(checkRotate == 2)
     {
+      float addY = 0;
+      
+      if ((int)liveShape.get(0).xy.y + (int)measure > (int)(measure * 17.0f))
+      {
+        addY += measure;
+      }//end if
+      
       liveShape.get(0).xy.x -= measure;
-      liveShape.get(0).xy.y += measure;
+      liveShape.get(0).xy.y += measure - addY;
+
+      liveShape.get(1).xy.y -= addY;
       
       liveShape.get(2).xy.x += measure;
-      liveShape.get(2).xy.y -= measure;
+      liveShape.get(2).xy.y -= measure + addY;
       
       liveShape.get(3).xy.x += measure * 2.0f;
+      liveShape.get(3).xy.y -= addY;
       
       checkRotate++;
     }//end else if
     else if(checkRotate == 3)
     {
-      liveShape.get(0).xy.x -= measure;
+      float addX = 0;
+      
+      if ((int)liveShape.get(0).xy.x - (int)measure < 0)
+      {
+        addX += measure;
+      }//end if
+      
+      liveShape.get(0).xy.x -= measure - addX;
       liveShape.get(0).xy.y -= measure;
+
+      liveShape.get(1).xy.x += addX;
       
-      liveShape.get(2).xy.x += measure;
+      liveShape.get(2).xy.x += measure + addX;
       liveShape.get(2).xy.y += measure;
-      
+
+      liveShape.get(3).xy.x += addX;
       liveShape.get(3).xy.y += measure * 2.0f;
       
       checkRotate = 0;

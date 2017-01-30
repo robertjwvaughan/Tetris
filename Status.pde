@@ -9,7 +9,7 @@ class Status
   Status()
   {
     playing = true;
-    shapeIndex = (int)random(0,6);
+    shapeIndex = (int)random(0,7);
   }//end CONSTRUCTOR Status
   
   /*
@@ -47,11 +47,11 @@ class Status
   */
   void chooseShape()
   {
-    int temp = (int)random(0,6);
+    int temp = (int)random(0,7);
     
     while(temp == shapeIndex)
     {
-      temp = (int)random(0,6);
+      temp = (int)random(0,7);
     }//end while
     
     this.shapeIndex = temp;
