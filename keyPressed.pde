@@ -77,6 +77,6 @@ void keyPressed()
   }//end if
   if ((key == 'w' || key == 'W'))
   {
-    shape.rotateT();
+    shape.rotateShape();
   }//end if
 }//end keyPressed

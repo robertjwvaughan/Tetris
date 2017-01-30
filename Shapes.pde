@@ -167,26 +167,32 @@ public class Shapes extends Square
       case 0:
       {
         rotateS();
+        break;
       }//end CASE
       case 1:
       {
         rotateJ();
+        break;
       }//end CASE
       case 2:
       {
         rotateI();
+        break;
       }//end CASE
       case 3:
       {
         rotatesZ();
+        break;
       }//end CASE
       case 4:
       {
         rotateL();
+        break;
       }//end CASE
       case 5:
       {
         rotateT();
+        break;
       }//end CASE
     }//end switch
   }//end rotate

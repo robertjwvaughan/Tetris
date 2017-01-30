@@ -54,7 +54,7 @@ class Status
       temp = (int)random(0,6);
     }//end while
     
-    shapeIndex = temp;
+    this.shapeIndex = temp;
     
     shape.indexCall(shapeIndex);
   }//end chooseShape()

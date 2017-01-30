@@ -27,8 +27,8 @@ int checkRotate;
 
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   //Creates the board object
