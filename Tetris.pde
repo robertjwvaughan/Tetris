@@ -18,12 +18,15 @@ Shapes shape;//Shape object
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
 ArrayList<Square> deadShape = new ArrayList<Square>();
+ArrayList<Leaderboards> leaderBoard = new ArrayList<Leaderboards>();
 
 Cell cells[][] = new Cell[18][10];
 
 int changeScreen;
 
 int checkRotate;
+
+Table t;
 
 void setup()
 {
@@ -100,3 +103,17 @@ void draw()
     }//end case 2 
   }//end switch
 }//end draw
+
+void loadFile()
+{
+  t = loadTable("data.csv", "header");
+  
+  //CLearing of data
+  leaderBoard.clear();
+  
+  for (int i = 0; i < t.getRowCount(); i++)
+  {
+    Leaderboards rowFetch = new Leaderboards(t.getRow(i));
+    leaderBoard.add(rowFetch);
+  }//end for
+}//end loadFile()
