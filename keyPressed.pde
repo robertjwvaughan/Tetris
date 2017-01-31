@@ -5,7 +5,7 @@ void keyPressed()
   */
   if ((key == 's' || key == 'S'))
   {
-    boolean down = generalDown();
+    generalDown();
     gameStatus.downCheckZero();
   }//end if
   

@@ -105,9 +105,9 @@ public class Square
       }//end CASE 
       case 'd':
       {
-        if (this.xy.y >= measure * 16)
+        if (this.xy.y + measure >= measure * 17)
         {
-          changeScreen = 0;
+          //changeScreen = 0;
           return false;
         }//end if
         else

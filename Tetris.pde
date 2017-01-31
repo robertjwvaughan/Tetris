@@ -84,10 +84,6 @@ void draw()
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         backBoard.nodeDraw();
         
-        gameStatus.downCheckInc();
-        gameStatus.downCheck();
-        
-        
         //Redraws the current shape after each frame
         for (int i = 0; i < liveShape.size(); i++)
         {
@@ -100,8 +96,8 @@ void draw()
         }//end for
         
       popMatrix();
-      
-      changeScreen = 1;
+      gameStatus.downCheckInc();
+      gameStatus.downCheck();
     }
     case 2:
     {
@@ -127,7 +123,7 @@ void loadFile()
 boolean generalDown()
 {
   int boolCheck = 0;
-    
+  
   for (int i = 0; i < liveShape.size(); i++)
   {
     if (false == liveShape.get(i).boundaryCheck('d'))
@@ -146,7 +142,9 @@ boolean generalDown()
   }//end if
   else
   {
+    System.out.println("Help" + deadShape.size());
     gameStatus.swapShapes();
+    changeScreen = 0;
     return false;
   }//end else
 }
