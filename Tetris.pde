@@ -56,6 +56,8 @@ void draw()
     { 
       background(#CADCF0);
       backBoard.defaultBackground();
+      gameStatus.downCheckZero();
+      
       pushMatrix();
         
         //Translates the sketch so the boards edge is (0,0)
@@ -75,13 +77,17 @@ void draw()
     case 1:
     {
       background(#CADCF0);
-      
       //Draws background
       backBoard.defaultBackground();
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         backBoard.nodeDraw();
+        
+        gameStatus.downCheckInc();
+        gameStatus.downCheck();
+        
+        
         //Redraws the current shape after each frame
         for (int i = 0; i < liveShape.size(); i++)
         {
@@ -117,3 +123,30 @@ void loadFile()
     leaderBoard.add(rowFetch);
   }//end for
 }//end loadFile()
+
+boolean generalDown()
+{
+  int boolCheck = 0;
+    
+  for (int i = 0; i < liveShape.size(); i++)
+  {
+    if (false == liveShape.get(i).boundaryCheck('d'))
+    {
+      boolCheck++;
+    }//end if
+  }//end for
+  
+  if (boolCheck == 0)
+  {
+    for (int i = 0; i < liveShape.size(); i++)
+    {
+      liveShape.get(i).down();
+    }//end for
+    return true;
+  }//end if
+  else
+  {
+    gameStatus.swapShapes();
+    return false;
+  }//end else
+}

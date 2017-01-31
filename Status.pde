@@ -2,6 +2,7 @@ class Status
 {
   private boolean playing;
   private int shapeIndex;
+  private int downCheck;
   
   /*
     A constructor that sets up a games state
@@ -10,6 +11,7 @@ class Status
   {
     playing = true;
     shapeIndex = (int)random(0,7);
+    downCheck = 0;
   }//end CONSTRUCTOR Status
   
   /*
@@ -83,6 +85,33 @@ class Status
         }//end if
       }//end for
     }//end for
-    System.out.println(deadShape.size());
+    //System.out.println(deadShape.size());
   }//end swapShapes()
+  
+  /*
+    Method to force speed
+  */
+  void downCheck()
+  {
+    if (downCheck % 60 == 0)
+    {
+      generalDown();
+    }
+  }//end METHOD downCheck()
+  
+  /*
+    Method to set frame rate measure to zero
+  */
+  void downCheckZero()
+  {
+    downCheck = 0;
+  }//end METHOD downCheckZero()
+  
+  /*
+    Increments frame count tracker every frame
+  */
+  void downCheckInc()
+  {
+    downCheck++;
+  }//end METHOD downCheckZero()
 }//enn CLASS Status
