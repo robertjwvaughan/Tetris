@@ -75,7 +75,6 @@ void draw()
             {
               fill(0);
               cells[i][j].drawSquare();
-              System.out.println(i + " " + j);
             }
           }//end for
         }//end for
@@ -107,9 +106,7 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
-              fill(0);
               cells[i][j].drawSquare();
-              System.out.println(i + " " + j);
             }
           }//end for
         }//end for
@@ -143,6 +140,28 @@ void loadFile()
 boolean generalDown()
 {
   int boolCheck = 0;
+  
+  for (int i = 17; i >= 0; i--)
+  {
+    for (int j = 0; j < 10; j++)
+    {
+      for (int k = 0; k < liveShape.size(); k++)
+      {
+        if((int)cells[i][j].ordinates.x == (int)liveShape.get(k).xy.x && (int)cells[i][j].ordinates.y == (int)liveShape.get(k).xy.y)
+        {
+          if (i < 17)
+          {
+            if (cells[i + 1][j].active == false)
+            {
+              gameStatus.swapShapes();
+              changeScreen = 0;
+              return false;
+            }//end if
+          }//end if
+        }//end if
+      }//end for
+    }//end for
+  }//end for
   
   for (int i = 0; i < liveShape.size(); i++)
   {

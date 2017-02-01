@@ -119,6 +119,6 @@ public class Square
       {
         return true;
       }
-    }
-  }
+    }//end swtich
+  }//end METHOD boundaryCheck
 }//end CLASS Square
