@@ -80,8 +80,9 @@ class Status
           if ((int)liveShape.get(k).xy.x == (int)cells[i][j].ordinates.x && (int)liveShape.get(k).xy.y == (int)cells[i][j].ordinates.y)
           {
             //System.out.println("GRKLJDVSM");
-            deadShape.add(liveShape.get(k));
+            //deadShape.add(liveShape.get(k));
             cells[i][j].active = false;
+            cells[i][j].square = liveShape.get(k);
           }//end if
         }//end if
       }//end for

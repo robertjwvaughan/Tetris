@@ -2,7 +2,7 @@ class Cell
 {
   boolean active;
   PVector ordinates;
-  Square x;
+  Square square;
   
   Cell()
   {
@@ -13,4 +13,9 @@ class Cell
     ordinates = new PVector(x, y);
     active = true;
   }//end CONSTRUCTOR
+  
+  void drawSquare()
+  {
+    square.drawSquare();
+  }//end METHOD drawSquare
 }//end CLASS Cell

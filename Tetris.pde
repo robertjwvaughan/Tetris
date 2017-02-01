@@ -17,7 +17,6 @@ Shapes shape;//Shape object
 
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
-ArrayList<Square> deadShape = new ArrayList<Square>();
 ArrayList<Leaderboards> leaderBoard = new ArrayList<Leaderboards>();
 
 Cell cells[][] = new Cell[18][10];
@@ -68,10 +67,19 @@ void draw()
         liveShape.clear();
         gameStatus.chooseShape();
         
-        for (int i = 0; i < deadShape.size(); i++)
+        for (int i = 17; i >= 0; i--)
         {
-          deadShape.get(i).drawSquare();
+          for (int j = 0; j < 10; j++)
+          {
+            if (cells[i][j].active == false)
+            {
+              fill(0);
+              cells[i][j].drawSquare();
+              System.out.println(i + " " + j);
+            }
+          }//end for
         }//end for
+        
       popMatrix();
       
       //System.out.println(shape.xy.x +" "+ shape.xy.y);
@@ -93,12 +101,6 @@ void draw()
           liveShape.get(i).drawSquare();
         }//end for
         
-        for (int i = 0; i < deadShape.size(); i++)
-        {
-          deadShape.get(i).drawSquare();
-        }//end for
-        
-        /*
         for (int i = 17; i >= 0; i--)
         {
           for (int j = 0; j < 10; j++)
@@ -106,12 +108,12 @@ void draw()
             if (cells[i][j].active == false)
             {
               fill(0);
-              rect(cells[i][j].ordinates.x, cells[i][j].ordinates.y,30, 30);
+              cells[i][j].drawSquare();
               System.out.println(i + " " + j);
             }
           }//end for
         }//end for
-        */
+        
         
       popMatrix();
       gameStatus.downCheckInc();
@@ -160,7 +162,6 @@ boolean generalDown()
   }//end if
   else
   {
-    System.out.println("Help" + deadShape.size());
     gameStatus.swapShapes();
     changeScreen = 0;
     return false;
