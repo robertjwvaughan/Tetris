@@ -5,6 +5,8 @@ public class Square
   float x;
   float y;
   float measure;
+  boolean center;
+  Square connected[] = new Square[4];
   
   //Constructor that passes the length of the square
   Square(float lengths)
@@ -19,7 +21,7 @@ public class Square
   Square(float lengths, float x, float y, color col)
   {
     //float half = lengths / 2.0f;
-    
+    center = false;
     measure = lengths;
     
     fill(col);
@@ -41,6 +43,12 @@ public class Square
     this.y = y * measure;
     
     xy = new PVector(this.x, this.y);
+  }//end CONSTRUCTOR
+  
+  Square(float lengths, float x, float y, color col, char center)
+  {
+    this(lengths, x, y, col);
+    this.center = true;
   }//end CONSTRUCTOR
   
   //Accessor method to get length
