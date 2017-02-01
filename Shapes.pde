@@ -204,46 +204,50 @@ public class Shapes extends Square
   {
     float addX = 0;
     float addY = 0;
-    if(checkRotate == 0)
+    if ((int)liveShape.get(0).xy.y < (int)measure * 16)
     {
-      liveShape.get(0).xy.x += measure;
-      
-      if ((int)liveShape.get(0).xy.y - (int)measure < 0)
+      if(checkRotate == 0)
       {
-        addY = measure;
-      }//end if
-      
-      liveShape.get(0).xy.y -= measure - addY;
-      
-      liveShape.get(1).xy.y += addY;
-      
-      liveShape.get(2).xy.x -= measure;
-      liveShape.get(2).xy.y += measure + addY;
-      
-      liveShape.get(3).xy.x -= measure * 2.0f;
-      liveShape.get(3).xy.y += measure * 2.0f + addY;
-      
-      checkRotate++;
-    }
-    else
-    {
-      if ((int)liveShape.get(0).xy.x - (int)measure < 0)
-      {
-        addX = measure;
+        liveShape.get(0).xy.x += measure;
+        
+        if ((int)liveShape.get(0).xy.y - (int)measure < 0)
+        {
+          addY = measure;
+        }//end if
+        
+        liveShape.get(0).xy.y -= measure - addY;
+        
+        liveShape.get(1).xy.y += addY;
+        
+        liveShape.get(2).xy.x -= measure;
+        liveShape.get(2).xy.y += measure + addY;
+        
+        liveShape.get(3).xy.x -= measure * 2.0f;
+        liveShape.get(3).xy.y += measure * 2.0f + addY;
+        
+        checkRotate++;
       }
-      liveShape.get(0).xy.x -= measure - addX;
-      liveShape.get(0).xy.y += measure;
-      
-      liveShape.get(1).xy.x += addX;
-      
-      liveShape.get(2).xy.x += measure + addX;
-      liveShape.get(2).xy.y -= measure;
-      
-      liveShape.get(3).xy.x += measure * 2.0f + addX;
-      liveShape.get(3).xy.y -= measure * 2.0f;
-      
-      checkRotate = 0;
+      else
+      {
+        if ((int)liveShape.get(0).xy.x - (int)measure < 0)
+        {
+          addX = measure;
+        }
+        liveShape.get(0).xy.x -= measure - addX;
+        liveShape.get(0).xy.y += measure;
+        
+        liveShape.get(1).xy.x += addX;
+        
+        liveShape.get(2).xy.x += measure + addX;
+        liveShape.get(2).xy.y -= measure;
+        
+        liveShape.get(3).xy.x += measure * 2.0f + addX;
+        liveShape.get(3).xy.y -= measure * 2.0f;
+        
+        checkRotate = 0;
+      }
     }
+    
   }
   
   /*

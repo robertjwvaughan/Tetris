@@ -11,5 +11,6 @@ class Cell
   Cell(float x, float y)
   {
     ordinates = new PVector(x, y);
+    active = true;
   }//end CONSTRUCTOR
 }//end CLASS Cell

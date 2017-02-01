@@ -48,6 +48,7 @@ void setup()
 
 void draw()
 { 
+  
   //Switch statement to track
   switch(changeScreen)
   {
@@ -62,6 +63,8 @@ void draw()
         
         //Translates the sketch so the boards edge is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+        
+        //backBoard.nodeDraw();
         liveShape.clear();
         gameStatus.chooseShape();
         
@@ -82,7 +85,7 @@ void draw()
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
-        backBoard.nodeDraw();
+        //backBoard.nodeDraw();
         
         //Redraws the current shape after each frame
         for (int i = 0; i < liveShape.size(); i++)
@@ -94,6 +97,21 @@ void draw()
         {
           deadShape.get(i).drawSquare();
         }//end for
+        
+        /*
+        for (int i = 17; i >= 0; i--)
+        {
+          for (int j = 0; j < 10; j++)
+          {
+            if (cells[i][j].active == false)
+            {
+              fill(0);
+              rect(cells[i][j].ordinates.x, cells[i][j].ordinates.y,30, 30);
+              System.out.println(i + " " + j);
+            }
+          }//end for
+        }//end for
+        */
         
       popMatrix();
       gameStatus.downCheckInc();

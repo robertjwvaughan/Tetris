@@ -81,11 +81,11 @@ class Status
           {
             //System.out.println("GRKLJDVSM");
             deadShape.add(liveShape.get(k));
+            cells[i][j].active = false;
           }//end if
         }//end if
       }//end for
     }//end for
-    //System.out.println(deadShape.size());
   }//end swapShapes()
   
   /*
