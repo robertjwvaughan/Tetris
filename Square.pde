@@ -6,7 +6,8 @@ public class Square
   float y;
   float measure;
   boolean center;
-  Square connected[] = new Square[4];
+  ArrayList<Square> connect = new ArrayList<Square>();
+  char pos;
   
   //Constructor that passes the length of the square
   Square(float lengths)
@@ -18,11 +19,12 @@ public class Square
     Constructor that passes the length of the square and PVector
     co-ordinates
   */
-  Square(float lengths, float x, float y, color col)
+  Square(float lengths, float x, float y, color col, char pos)
   {
     //float half = lengths / 2.0f;
     center = false;
     measure = lengths;
+    pos = '0';
     
     fill(col);
     
@@ -39,16 +41,17 @@ public class Square
     square.endShape(CLOSE);
     
     //PVector recorded
-    this.x = x * measure;
-    this.y = y * measure;
+    this.x = cells[(int)y][(int)x].ordinates.x;
+    this.y = cells[(int)y][(int)x].ordinates.y;
     
     xy = new PVector(this.x, this.y);
-  }//end CONSTRUCTOR
-  
-  Square(float lengths, float x, float y, color col, char center)
-  {
-    this(lengths, x, y, col);
-    this.center = true;
+    
+    if (pos == 'C')
+    {
+      this.center = true;
+    }//end if
+    
+    this.pos = pos;
   }//end CONSTRUCTOR
   
   //Accessor method to get length

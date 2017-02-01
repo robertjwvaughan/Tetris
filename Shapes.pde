@@ -13,9 +13,9 @@ public class Shapes extends Square
     Constructor that passes values to the classes super
     constructor
   */
-  Shapes(float sDimension, float x, float y, color col)
+  Shapes(float sDimension, float x, float y, color col, char pos)
   {
-    super(sDimension, x, y, col);
+    super(sDimension, x, y, col, pos);
     //System.out.println(sDimension);
     //shape(square, 0, 0);
   }
@@ -70,12 +70,16 @@ public class Shapes extends Square
   */
   void shapeI()
   {
-    liveShape.add(new Square(measure, 3, 0, #FF6600));
-    liveShape.add(new Square(measure, 4, 0, #FF6600));
-    liveShape.add(new Square(measure, 5, 0, #FF6600));
-    liveShape.add(new Square(measure, 6, 0, #FF6600));
+    liveShape.add(new Square(measure, 3, 0, #FF6600, 'L'));
+    liveShape.add(new Square(measure, 4, 0, #FF6600, 'C'));
+    liveShape.add(new Square(measure, 5, 0, #FF6600, 'R'));
+    liveShape.add(new Square(measure, 6, 0, #FF6600, 'R'));
     
     checkRotate = 0;
+    
+    liveShape.get(1).connect.add(liveShape.get(0));
+    liveShape.get(1).connect.add(liveShape.get(2));
+    liveShape.get(2).connect.add(liveShape.get(3));
   }//end METHOD I
   
   /*
@@ -83,10 +87,10 @@ public class Shapes extends Square
   */
   void shapeS()
   {
-    liveShape.add(new Square(measure, 4, 0, #66CCFF));
-    liveShape.add(new Square(measure, 5, 0, #66CCFF));
-    liveShape.add(new Square(measure, 3, 1, #66CCFF));
-    liveShape.add(new Square(measure, 4, 1, #66CCFF));
+    liveShape.add(new Square(measure, 4, 0, #66CCFF, 'C'));
+    liveShape.add(new Square(measure, 5, 0, #66CCFF, 'R'));
+    liveShape.add(new Square(measure, 3, 1, #66CCFF, 'L'));
+    liveShape.add(new Square(measure, 4, 1, #66CCFF, 'U'));
     
     checkRotate = 0;
   }
@@ -96,10 +100,10 @@ public class Shapes extends Square
   */
   void shapeJ()
   {
-    liveShape.add(new Square(measure, 3, 0, #CC00FF));
-    liveShape.add(new Square(measure, 4, 0, #CC00FF));
-    liveShape.add(new Square(measure, 5, 0, #CC00FF));
-    liveShape.add(new Square(measure, 5, 1, #CC00FF));
+    liveShape.add(new Square(measure, 3, 0, #CC00FF, 'L'));
+    liveShape.add(new Square(measure, 4, 0, #CC00FF, 'C'));
+    liveShape.add(new Square(measure, 5, 0, #CC00FF, 'R'));
+    liveShape.add(new Square(measure, 5, 1, #CC00FF, 'D'));
     
     checkRotate = 0;
   }
@@ -109,10 +113,10 @@ public class Shapes extends Square
   */
   void shapeZ()
   {
-    liveShape.add(new Square(measure, 3, 0, #00FF00));
-    liveShape.add(new Square(measure, 4, 0, #00FF00));
-    liveShape.add(new Square(measure, 4, 1, #00FF00));
-    liveShape.add(new Square(measure, 5, 1, #00FF00));
+    liveShape.add(new Square(measure, 3, 0, #00FF00, 'L'));
+    liveShape.add(new Square(measure, 4, 0, #00FF00, 'U'));
+    liveShape.add(new Square(measure, 4, 1, #00FF00, 'C'));
+    liveShape.add(new Square(measure, 5, 1, #00FF00, 'R'));
     
     checkRotate = 0;
   }
@@ -122,10 +126,10 @@ public class Shapes extends Square
   */
   void shapeL()
   {
-    liveShape.add(new Square(measure, 3, 0, #0000FF));
-    liveShape.add(new Square(measure, 4, 0, #0000FF));
-    liveShape.add(new Square(measure, 5, 0, #0000FF));
-    liveShape.add(new Square(measure, 3, 1, #0000FF));
+    liveShape.add(new Square(measure, 3, 0, #0000FF, 'L'));
+    liveShape.add(new Square(measure, 4, 0, #0000FF, 'C'));
+    liveShape.add(new Square(measure, 5, 0, #0000FF, 'R'));
+    liveShape.add(new Square(measure, 3, 1, #0000FF, 'D'));
     
     checkRotate = 0;
   }
@@ -135,10 +139,10 @@ public class Shapes extends Square
   */
   void shapeT()
   {
-    liveShape.add(new Square(measure, 3, 0, #FFFF00));
-    liveShape.add(new Square(measure, 4, 0, #FFFF00));
-    liveShape.add(new Square(measure, 5, 0, #FFFF00));
-    liveShape.add(new Square(measure, 4, 1, #FFFF00));
+    liveShape.add(new Square(measure, 3, 0, #FFFF00, 'L'));
+    liveShape.add(new Square(measure, 4, 0, #FFFF00, 'C'));
+    liveShape.add(new Square(measure, 5, 0, #FFFF00, 'R'));
+    liveShape.add(new Square(measure, 4, 1, #FFFF00, 'D'));
     
     checkRotate = 0;
   }
@@ -148,10 +152,10 @@ public class Shapes extends Square
   */
   void shapeO()
   {
-    liveShape.add(new Square(measure, 4, 0, #FF0000));
-    liveShape.add(new Square(measure, 4, 1, #FF0000));
-    liveShape.add(new Square(measure, 5, 0, #FF0000));
-    liveShape.add(new Square(measure, 5, 1, #FF0000));
+    liveShape.add(new Square(measure, 4, 0, #FF0000, 'N'));
+    liveShape.add(new Square(measure, 4, 1, #FF0000, 'N'));
+    liveShape.add(new Square(measure, 5, 0, #FF0000, 'N'));
+    liveShape.add(new Square(measure, 5, 1, #FF0000, 'N'));
     
     checkRotate = 0;
   }

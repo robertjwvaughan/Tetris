@@ -39,7 +39,7 @@ void setup()
   
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
-  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255));
+  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'C');
   changeScreen = 0;
   
   background(#CADCF0);
