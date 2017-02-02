@@ -87,10 +87,10 @@ public class Shapes extends Square
   */
   void shapeS()
   {
-    liveShape.add(new Square(measure, 4, 0, #66CCFF, 'C'));
+    liveShape.add(new Square(measure, 4, 0, #66CCFF, 'U'));
     liveShape.add(new Square(measure, 5, 0, #66CCFF, 'R'));
     liveShape.add(new Square(measure, 3, 1, #66CCFF, 'L'));
-    liveShape.add(new Square(measure, 4, 1, #66CCFF, 'U'));
+    liveShape.add(new Square(measure, 4, 1, #66CCFF, 'C'));
     
     checkRotate = 0;
   }
@@ -612,5 +612,10 @@ public class Shapes extends Square
       
       checkRotate = 0;
     }//end else if
-  }//end 
+  }//end METHOD
+  
+  void testI()
+  {
+    
+  }//end METHOD testI()
 }
