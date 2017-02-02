@@ -614,8 +614,24 @@ public class Shapes extends Square
     }//end else if
   }//end METHOD
   
+  /*
+    Method that refines the roatation algorithm
+  */
+  
   void testI()
   {
-    
+    ArrayList<PVector> loc = new ArrayList<PVector>();
+    for (int i = 0; i < liveShape.size(); i++)
+    {
+      if (liveShape.get(i).center == true)
+      {
+        int save = i;
+        i = liveShape.size();
+        for (int j = 0; j < liveShape.get(save).connect.size(); j++)
+        {
+          loc.add(liveShape.get(save).connect.get(i).xy);
+        }//end for
+      }//end if
+    }//end for
   }//end METHOD testI()
 }
