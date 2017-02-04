@@ -58,7 +58,7 @@ class Status
     
     this.shapeIndex = temp;
     
-    shape.indexCall(shapeIndex);
+    shape.indexCall(temp);
   }//end chooseShape()
   
   /*

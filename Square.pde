@@ -19,7 +19,7 @@ public class Square
     Constructor that passes the length of the square and PVector
     co-ordinates
   */
-  Square(float lengths, float x, float y, color col, char pos)
+  Square(float lengths, float x, float y, color col, char loc)
   {
     //float half = lengths / 2.0f;
     center = false;
@@ -46,12 +46,12 @@ public class Square
     
     xy = new PVector(this.x, this.y);
     
-    if (pos == 'C')
+    if (loc == 'C')
     {
       this.center = true;
     }//end if
     
-    this.pos = pos;
+    this.pos = loc;
   }//end CONSTRUCTOR
   
   //Accessor method to get length

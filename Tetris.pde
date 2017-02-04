@@ -39,7 +39,7 @@ void setup()
   
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
-  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'C');
+  shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
   changeScreen = 0;
   
   background(#CADCF0);
@@ -65,7 +65,11 @@ void draw()
         
         //backBoard.nodeDraw();
         liveShape.clear();
-        gameStatus.chooseShape();
+        //gameStatus.chooseShape();
+        
+        System.out.println("Shape call");
+        shape.shapeI();
+        
         
         for (int i = 17; i >= 0; i--)
         {
@@ -78,6 +82,7 @@ void draw()
             }
           }//end for
         }//end for
+        
         
       popMatrix();
       

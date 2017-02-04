@@ -620,18 +620,46 @@ public class Shapes extends Square
   
   void testI()
   {
-    ArrayList<PVector> loc = new ArrayList<PVector>();
     for (int i = 0; i < liveShape.size(); i++)
     {
       if (liveShape.get(i).center == true)
       {
-        int save = i;
-        i = liveShape.size();
-        for (int j = 0; j < liveShape.get(save).connect.size(); j++)
-        {
-          loc.add(liveShape.get(save).connect.get(i).xy);
-        }//end for
+        centre(liveShape.get(i));
+        i = liveShape.size() + 1;
+        System.out.println("Found Center");
       }//end if
     }//end for
   }//end METHOD testI()
+  
+  void centre(Square centre)
+  {
+    ArrayList<Square> move = new ArrayList<Square>();
+    
+    for (int i = 0; i < centre.connect.size(); i++)
+    {
+      connection(centre.connect.get(i), move);
+      
+      for (int j = 0; j < move.size(); j++)
+      {
+        
+      }//end for
+    }
+  }//end 
+  
+  void connection(Square piece, ArrayList c)
+  {
+    c.add(piece);
+    if (piece.connect.size() != 0)
+    {
+      for (int i = 0; i < piece.connect.size(); i++)
+      {
+        connection(piece.connect.get(0), c);
+      }//end for
+    }//end if
+    else
+    {
+      return;
+    }
+    
+  }//end METHOD connection()
 }

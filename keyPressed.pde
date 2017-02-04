@@ -56,9 +56,10 @@ void keyPressed()
       }//end for
     }//end if
   }//end if
+  
   if ((key == 'w' || key == 'W'))
   {
-    shape.rotateShape();
+    shape.testI();
   }//end if
   
   if (keyCode == ' ')
