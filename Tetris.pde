@@ -65,10 +65,9 @@ void draw()
         
         //backBoard.nodeDraw();
         liveShape.clear();
-        //gameStatus.chooseShape();
+        gameStatus.chooseShape();
         
         System.out.println("Shape call");
-        shape.shapeL();
         
         
         for (int i = 17; i >= 0; i--)
