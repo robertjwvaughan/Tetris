@@ -634,7 +634,6 @@ public class Shapes extends Square
   void centre(Square centre)
   {
     ArrayList<Square> move = new ArrayList<Square>();
-    
     move.clear();
     for (int i = 0; i < centre.connect.size(); i++)
     {
@@ -701,14 +700,51 @@ public class Shapes extends Square
         fixSquare(connect, connect.connect.get(i));
       }//end for
     }//end else if
+    else if(connect.pos == 'D')
+    {
+      connect.xy.x = origin.xy.x - measure;
+      connect.xy.y = origin.xy.y;
+      connect.pos = 'L';
+      
+      for (int i = 0; i < connect.connect.size(); i++)
+      {
+        fixSquare(connect, connect.connect.get(i));
+      }//end for
+    }//end else if
+    else if(connect.pos == 'U')
+    {
+      connect.xy.x = origin.xy.x + measure;
+      connect.xy.y = origin.xy.y;
+      connect.pos = 'R';
+      
+      for (int i = 0; i < connect.connect.size(); i++)
+      {
+        fixSquare(connect, connect.connect.get(i));
+      }//end for
+    }//end else if
   }//end METHOD moveSquare
   
   void fixSquare(Square origin, Square connect)
   {
-    if (connect.pos == 'D')
+    if (connect.pos == 'L')
+    {
+      connect.xy.x = origin.xy.x - measure;
+      connect.xy.y = origin.xy.y;
+    }//end if
+    else if (connect.pos == 'U')
+    {
+      connect.xy.x = origin.xy.x;
+      connect.xy.y = origin.xy.y - measure;
+    }//end if
+    else if (connect.pos == 'R')
+    {
+      connect.xy.x = origin.xy.x + measure;
+      connect.xy.y = origin.xy.y;
+    }//end if
+    else if (connect.pos == 'D')
     {
       connect.xy.x = origin.xy.x;
       connect.xy.y = origin.xy.y + measure;
     }//end if
   }//end METHOD 
-}
+}//end CLASS Shapes

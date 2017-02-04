@@ -68,7 +68,7 @@ void draw()
         //gameStatus.chooseShape();
         
         System.out.println("Shape call");
-        shape.shapeI();
+        shape.shapeL();
         
         
         for (int i = 17; i >= 0; i--)
