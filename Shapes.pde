@@ -635,14 +635,18 @@ public class Shapes extends Square
   {
     ArrayList<Square> move = new ArrayList<Square>();
     
+    move.clear();
     for (int i = 0; i < centre.connect.size(); i++)
     {
       connection(centre.connect.get(i), move);
       
-      for (int j = 0; j < move.size(); j++)
+      System.out.println(move.size());
+      
+      for (int j = 0; j < 1; j++)
       {
-        
+        moveSquare(centre, move.get(j));
       }//end for
+      move.clear();
     }
   }//end 
   
@@ -659,7 +663,38 @@ public class Shapes extends Square
     else
     {
       return;
-    }
-    
+    }//end else
   }//end METHOD connection()
+  
+  void moveSquare(Square origin, Square connect)
+  {
+    float x = 0;
+    float y = 0;
+
+    x = connect.xy.x - origin.xy.x;
+    y = connect.xy.y - origin.xy.y;
+    
+    for(int i = 0; i < connect.connect.size(); i++)
+    {
+      moveSquare(connect, connect.connect.get(i));
+    }//end for
+    
+    if (connect.pos == 'L')
+    {
+      connect.xy.x += measure;
+      connect.xy.y -= measure;
+      connect.pos = 'U';
+    }//end if
+    else if(connect.pos == 'R')
+    {
+      connect.xy.x = origin.xy.x;
+      connect.xy.y = origin.xy.y + measure;
+      connect.pos = 'D';
+    }//end else if
+  }//end METHOD moveSquare
+  
+  void fixSquare()
+  {
+    
+  }//end METHOD 
 }
