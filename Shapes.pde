@@ -684,17 +684,31 @@ public class Shapes extends Square
       connect.xy.x += measure;
       connect.xy.y -= measure;
       connect.pos = 'U';
+      
+      for (int i = 0; i < connect.connect.size(); i++)
+      {
+        fixSquare(connect, connect.connect.get(i));
+      }//end for
     }//end if
     else if(connect.pos == 'R')
     {
       connect.xy.x = origin.xy.x;
       connect.xy.y = origin.xy.y + measure;
       connect.pos = 'D';
+      
+      for (int i = 0; i < connect.connect.size(); i++)
+      {
+        fixSquare(connect, connect.connect.get(i));
+      }//end for
     }//end else if
   }//end METHOD moveSquare
   
-  void fixSquare()
+  void fixSquare(Square origin, Square connect)
   {
-    
+    if (connect.pos == 'D')
+    {
+      connect.xy.x = origin.xy.x;
+      connect.xy.y = origin.xy.y + measure;
+    }//end if
   }//end METHOD 
 }
