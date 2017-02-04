@@ -186,11 +186,18 @@ public class Shapes extends Square
   
   void testI()
   {
+    ArrayList<Square> copyShape = new ArrayList<Square>();
+    
     for (int i = 0; i < liveShape.size(); i++)
     {
-      if (liveShape.get(i).center == true)
+      copyShape.add(liveShape.get(i));
+    }//end for
+    
+    for (int i = 0; i < copyShape.size(); i++)
+    {
+      if (copyShape.get(i).center == true)
       {
-        centre(liveShape.get(i));
+        centre(copyShape.get(i));
         i = liveShape.size() + 1;
         System.out.println("Found Center");
       }//end if
@@ -215,6 +222,10 @@ public class Shapes extends Square
     }
   }//end 
   
+  /*
+    A method that adds 
+  */
+  
   void connection(Square piece, ArrayList c)
   {
     c.add(piece);
@@ -230,6 +241,12 @@ public class Shapes extends Square
       return;
     }//end else
   }//end METHOD connection()
+  
+  /*
+    A methof that takes a parent and a child square
+    and rotates the child, based on the parents location 
+    and state
+  */
   
   void moveSquare(Square origin, Square connect)
   {
@@ -283,6 +300,11 @@ public class Shapes extends Square
       }//end for
     }//end else if
   }//end METHOD moveSquare
+  
+  /*
+    A method to realign squares if their parent square has
+    been moved
+  */
   
   void fixSquare(Square origin, Square connect)
   {
