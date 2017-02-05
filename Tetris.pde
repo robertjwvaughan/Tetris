@@ -30,8 +30,8 @@ Table t;
 
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   //Creates the board object
@@ -48,6 +48,7 @@ void setup()
 
 void draw()
 {
+  stroke(0);
   //Switch statement to track
   switch(changeScreen)
   {
@@ -145,10 +146,22 @@ void draw()
     }
     case 2:
     {
-      textSize(50);
-      textAlign(CENTER);
+      fill(#CADCF0);
+      noStroke();
+      rectMode(CENTER);
+      
+      rect(width / 2.0f, height / 2.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f - (map(10, 0, 384, 0, height)), height - (map(150, 0, 384, 0, height)));
+      
+      textSize(map(30, 0, 683, 0, width));
+      textAlign(CENTER, CENTER);
       fill(0);
+      
       text("GAME OVER", width / 2.0f, height / 4.0f);
+      
+      textSize(map(25, 0, 683, 0, width));
+      text("SCORE", width / 2.0f, height / 2.0f);
+      textAlign(CENTER, TOP);
+      text(gameStatus.getScore(), width / 2.0f, height / 2.0f + map(20, 0, 384, 0, height));
       break;
     }//end case 2 
     case 3:

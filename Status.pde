@@ -3,16 +3,27 @@ class Status
   private boolean playing;
   private int shapeIndex;
   private int downCheck;
+  private int score;
   
   /*
     A constructor that sets up a games state
   */
   Status()
   {
+    score = 0;
     playing = true;
     shapeIndex = (int)random(0,7);
     downCheck = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method that returns the game score
+  */
+  
+  int getScore()
+  {
+    return score;
+  }//end getScore
   
   /*
     Method checks the current game state
