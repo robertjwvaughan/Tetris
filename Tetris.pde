@@ -17,6 +17,7 @@ Shapes shape;//Shape object
 
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
+ArrayList<Square> copyShape = new ArrayList<Square>();
 ArrayList<Leaderboards> leaderBoard = new ArrayList<Leaderboards>();
 
 Cell cells[][] = new Cell[18][10];
@@ -46,8 +47,7 @@ void setup()
 }//end setup
 
 void draw()
-{ 
-  
+{
   //Switch statement to track
   switch(changeScreen)
   {
@@ -65,6 +65,7 @@ void draw()
         
         //backBoard.nodeDraw();
         liveShape.clear();
+        copyShape.clear();
         gameStatus.chooseShape();
         
         System.out.println("Shape call");
@@ -87,6 +88,7 @@ void draw()
       
       //System.out.println(shape.xy.x +" "+ shape.xy.y);
       changeScreen = 1;
+      break;
     }//end case 0
     case 1:
     {
@@ -99,6 +101,26 @@ void draw()
         //backBoard.nodeDraw();
         
         //Redraws the current shape after each frame
+        
+        for (int i = 0; i < 2; i++)
+        {
+          for (int j = 0; j < 10; j++)
+          {
+            for (int k = 0; k < liveShape.size(); k++)
+            {
+              if((int)cells[i][j].ordinates.x == (int)liveShape.get(k).xy.x && (int)cells[i][j].ordinates.y == (int)liveShape.get(k).xy.y)
+              {
+                if (cells[i][j].active == false)
+                {
+                  changeScreen = 2;
+                  gameStatus.changeState();
+                }//end if
+              }//end if
+            }//end for
+          }//end for
+        }//end for
+        
+        
         for (int i = 0; i < liveShape.size(); i++)
         {
           liveShape.get(i).drawSquare();
@@ -119,11 +141,20 @@ void draw()
       popMatrix();
       gameStatus.downCheckInc();
       gameStatus.downCheck();
+      break;
     }
     case 2:
     {
-      
+      textSize(50);
+      textAlign(CENTER);
+      fill(0);
+      text("GAME OVER", width / 2.0f, height / 4.0f);
+      break;
     }//end case 2 
+    case 3:
+    {
+      
+    }//end case 3
   }//end switch
 }//end draw
 

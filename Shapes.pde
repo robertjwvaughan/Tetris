@@ -93,6 +93,7 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0, #66CCFF, 'R'));
     liveShape.add(new Square(measure, 3, 1, #66CCFF, 'L'));
     liveShape.add(new Square(measure, 4, 1, #66CCFF, 'C'));
+
     
     liveShape.get(3).connect.add(liveShape.get(0));
     liveShape.get(3).connect.add(liveShape.get(2));
@@ -188,17 +189,7 @@ public class Shapes extends Square
   
   void rotateShape()
   {
-    ArrayList<Square> copyShape = new ArrayList<Square>();
-    int pass = 0;
-
-    copyShape.clear();
-    
-    for (int i = 0; i < liveShape.size(); i++)
-    {
-      copyShape.add(new Square());
-      
-      copyArrayList(liveShape.get(i), copyShape.get(i));
-    }//end for
+    ArrayList<Square> copyShape = new ArrayList<Square>(liveShape);
     
     for (int i = 0; i < copyShape.size(); i++)
     {
@@ -259,7 +250,10 @@ public class Shapes extends Square
             if (cells[i][j].active == false)
             {
               pass++;
-              System.out.println("False Call");
+              System.out.println("HEYYYY");
+              k = copyShape.size();
+              j = 10;
+              i = 18;
             }//end if
           }//end if
         }//end for
@@ -272,13 +266,14 @@ public class Shapes extends Square
     
     if (pass == 0)
     {
-      liveShape.clear();
       
-      for (int i = 0; i < copyShape.size(); i++)
-      {
-        liveShape.add(copyShape.get(i));
-      }//end for
     }//end if
+    else
+    {
+      
+    }//end else
+    
+    pass = 0;
   }//end METHOD testI()
   
   void centre(Square centre)

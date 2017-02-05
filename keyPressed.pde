@@ -3,7 +3,7 @@ void keyPressed()
   /*
     If s is pressed, the shape will go down
   */
-  if ((key == 's' || key == 'S'))
+  if ((key == 's' || key == 'S') && gameStatus.gameState())
   {
     generalDown();
     gameStatus.downCheckZero();
@@ -12,7 +12,7 @@ void keyPressed()
   /*
     If a is pressed, the shapes vectors head towards right
   */
-  if ((key == 'a' || key == 'A'))
+  if ((key == 'a' || key == 'A')  && gameStatus.gameState())
   {
     int boolCheck = 0;
     
@@ -36,7 +36,7 @@ void keyPressed()
   /*
     If d is pressed, the shapes vectors head towards right
   */
-  if ((key == 'd' || key == 'D'))
+  if ((key == 'd' || key == 'D')  && gameStatus.gameState())
   {
     int boolCheck = 0;
     
@@ -57,13 +57,13 @@ void keyPressed()
     }//end if
   }//end if
   
-  if ((key == 'w' || key == 'W'))
+  if ((key == 'w' || key == 'W')  && gameStatus.gameState())
   {
     shape.rotateShape();
   }//end if
   
-  if (keyCode == ' ')
+  if ((keyCode == ' '))
   {
-    while(false != generalDown());
+    while(false != generalDown()  && gameStatus.gameState());
   }
 }//end keyPressed

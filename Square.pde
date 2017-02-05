@@ -9,6 +9,11 @@ public class Square
   ArrayList<Square> connect = new ArrayList<Square>();
   char pos;
   
+  Square()
+  {
+    xy = new PVector(0,0);
+  }
+  
   //Constructor that passes the length of the square
   Square(float lengths)
   {
@@ -19,6 +24,7 @@ public class Square
     Constructor that passes the length of the square and PVector
     co-ordinates
   */
+  
   Square(float lengths, float x, float y, color col, char loc)
   {
     //float half = lengths / 2.0f;
@@ -147,9 +153,4 @@ public class Square
     }//end for
     return true;
   }//end METHOD checkClash()
-  
-  void copyArrayList(Square original, Square copy)
-  {
-    
-  }//end 
 }//end CLASS Square
