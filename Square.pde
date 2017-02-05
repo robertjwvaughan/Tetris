@@ -147,4 +147,9 @@ public class Square
     }//end for
     return true;
   }//end METHOD checkClash()
+  
+  void copyArrayList(Square original, Square copy)
+  {
+    
+  }//end 
 }//end CLASS Square

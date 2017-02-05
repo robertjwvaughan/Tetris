@@ -186,14 +186,18 @@ public class Shapes extends Square
     Method that refines the roatation algorithm
   */
   
-  void testI()
+  void rotateShape()
   {
     ArrayList<Square> copyShape = new ArrayList<Square>();
     int pass = 0;
+
+    copyShape.clear();
     
     for (int i = 0; i < liveShape.size(); i++)
     {
-      copyShape.add(liveShape.get(i));
+      copyShape.add(new Square());
+      
+      copyArrayList(liveShape.get(i), copyShape.get(i));
     }//end for
     
     for (int i = 0; i < copyShape.size(); i++)
@@ -201,7 +205,7 @@ public class Shapes extends Square
       if (copyShape.get(i).center == true)
       {
         centre(copyShape.get(i));
-        i = liveShape.size() + 1;
+        i = copyShape.size() + 1;
         System.out.println("Found Center");
       }//end if
     }//end for
@@ -216,7 +220,9 @@ public class Shapes extends Square
       {
         for (int j = 0; j < copyShape.size(); j++)
         {
+          System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
           copyShape.get(j).xy.x += measure;
+          System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
         }//end for
       }//end if
       if ((int)copyShape.get(i).xy.x > (int)(measure * 9))
@@ -253,6 +259,7 @@ public class Shapes extends Square
             if (cells[i][j].active == false)
             {
               pass++;
+              System.out.println("False Call");
             }//end if
           }//end if
         }//end for
@@ -278,6 +285,7 @@ public class Shapes extends Square
   {
     ArrayList<Square> move = new ArrayList<Square>();
     move.clear();
+    
     for (int i = 0; i < centre.connect.size(); i++)
     {
       connection(centre.connect.get(i), move);
@@ -415,5 +423,5 @@ public class Shapes extends Square
       connect.xy.x = origin.xy.x;
       connect.xy.y = origin.xy.y + measure;
     }//end if
-  }//end METHOD 
+  }//end METHOD
 }//end CLASS Shapes
