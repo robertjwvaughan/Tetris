@@ -42,7 +42,15 @@ void setup()
   backBoard.nodeDraw();
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
   changeScreen = 0;
-  
+  /*
+  for (int i = 0; i < 18; i++)
+  {
+    for (int j = 0; j < 10; j++)
+    {
+      
+    }//end for
+  }//end for
+  */
   background(#CADCF0);
 }//end setup
 
@@ -266,13 +274,16 @@ void checkCells()
     
   }//end if
   
+  System.out.println(list.size() + "HUSND");
+  
   for (int i = 0; i < list.size(); i++)
   {
     for (int j = list.get(i); j > 0; j--)
     {
       for (int k = 0; k < 10; k++)
       {
-        cells[j][k].square = cells[j - 1][k].square;
+        cells[j][k].x = cells[j - 1][k].x;
+        cells[j][k].y = cells[j - 1][k].y;
         cells[j][k].active = cells[j - 1][k].active;
       }//end for
     }//end for

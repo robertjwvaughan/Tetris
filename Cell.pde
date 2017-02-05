@@ -3,6 +3,7 @@ class Cell
   boolean active;
   PVector ordinates;
   Square square;
+  float x, y;
   
   Cell()
   {
@@ -10,6 +11,8 @@ class Cell
   
   Cell(float x, float y)
   {
+    this.x = x;
+    this.y = y;
     ordinates = new PVector(x, y);
     active = true;
   }//end CONSTRUCTOR
