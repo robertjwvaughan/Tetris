@@ -129,7 +129,7 @@ public class Square
       default:
       {
         return true;
-      }
+      }//end default
     }//end swtich
   }//end METHOD boundaryCheck
   
