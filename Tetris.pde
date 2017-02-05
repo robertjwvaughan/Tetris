@@ -59,6 +59,8 @@ void draw()
       backBoard.defaultBackground();
       gameStatus.downCheckZero();
       
+      checkCells();
+      
       pushMatrix();
         
         //Translates the sketch so the boards edge is (0,0)
@@ -234,3 +236,45 @@ boolean generalDown()
     return false;
   }//end else
 }
+
+void checkCells()
+{
+  int numLines = 0;
+  ArrayList<Integer> list = new ArrayList<Integer>();
+  
+  for (int i = 17; i >= 0; i--)
+  {
+    int check = 0;
+    
+    for (int j = 0; j < 10; j++)
+    {
+      if (cells[i][j].active == false)
+      {
+        check++;
+      }//end if
+    }//end for
+    
+    if(check == 10)
+    {
+      numLines++;
+      list.add(i);
+    }//end if
+  }//end for
+  
+  if (numLines == 4)
+  {
+    
+  }//end if
+  
+  for (int i = 0; i < list.size(); i++)
+  {
+    for (int j = list.get(i); j > 0; j--)
+    {
+      for (int k = 0; k < 10; k++)
+      {
+        cells[j][k].square = cells[j - 1][k].square;
+        cells[j][k].active = cells[j - 1][k].active;
+      }//end for
+    }//end for
+  }//end for
+}//end METHOD
