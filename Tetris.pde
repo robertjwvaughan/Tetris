@@ -147,8 +147,7 @@ void draw()
             }
           }//end for
         }//end for
-        
-        
+   
       popMatrix();
       gameStatus.downCheckInc();
       gameStatus.downCheck();
