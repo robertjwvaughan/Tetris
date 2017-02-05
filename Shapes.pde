@@ -1,3 +1,5 @@
+int pass = 0;
+
 public class Shapes extends Square
 {
   /*
@@ -187,6 +189,7 @@ public class Shapes extends Square
   void testI()
   {
     ArrayList<Square> copyShape = new ArrayList<Square>();
+    int pass = 0;
     
     for (int i = 0; i < liveShape.size(); i++)
     {
@@ -202,6 +205,73 @@ public class Shapes extends Square
         System.out.println("Found Center");
       }//end if
     }//end for
+    
+    /*
+      A loop that checks whether a square is out of bounds
+    */
+    
+    for (int i = 0; i < copyShape.size(); i++)
+    {
+      if ((int)copyShape.get(i).xy.x < 0)
+      {
+        for (int j = 0; j < copyShape.size(); j++)
+        {
+          copyShape.get(j).xy.x += measure;
+        }//end for
+      }//end if
+      if ((int)copyShape.get(i).xy.x > (int)(measure * 9))
+      {
+        for (int j = 0; j < copyShape.size(); j++)
+        {
+          copyShape.get(j).xy.x -= measure;
+        }//end for
+      }//end if
+      if ((int)copyShape.get(i).xy.y < 0)
+      {
+        for (int j = 0; j < copyShape.size(); j++)
+        {
+          copyShape.get(j).xy.y += measure;
+        }//end for
+      }//end if
+      if ((int)copyShape.get(i).xy.y > (int)(measure * 17))
+      {
+        for (int j = 0; j < copyShape.size(); j++)
+        {
+          copyShape.get(j).xy.y -= measure;
+        }//end for
+      }//end if
+    }//end for
+    
+    for (int i = 0; i < 18; i++)
+    {
+      for (int j = 0; j < 10; j++)
+      {
+        for (int k = 0; k < copyShape.size(); k++)
+        {
+          if ((int)cells[i][j].ordinates.x == (int)copyShape.get(k).xy.x && (int)cells[i][j].ordinates.y == (int)copyShape.get(k).xy.y)
+          {
+            if (cells[i][j].active == false)
+            {
+              pass++;
+            }//end if
+          }//end if
+        }//end for
+      }//end for
+    }//end for
+    
+    /*
+      Swaps values into active array list
+    */
+    
+    if (pass == 0)
+    {
+      liveShape.clear();
+      
+      for (int i = 0; i < copyShape.size(); i++)
+      {
+        liveShape.add(copyShape.get(i));
+      }//end for
+    }//end if
   }//end METHOD testI()
   
   void centre(Square centre)
@@ -300,6 +370,23 @@ public class Shapes extends Square
       }//end for
     }//end else if
   }//end METHOD moveSquare
+  
+  void searchSquare(int x, int y)
+  {
+    for (int i = 0; i < 18; i++)
+    {
+      for (int j = 0; j < 10; j++)
+      {
+        if((int)cells[i][j].ordinates.x == x && (int)cells[i][j].ordinates.y == y)
+        {
+          if (cells[i][j].active == false)
+          {
+            pass++;
+          }//end if
+        }//end if
+      }//end for
+    }//end for
+  }//end searchSquare
   
   /*
     A method to realign squares if their parent square has

@@ -132,4 +132,19 @@ public class Square
       }
     }//end swtich
   }//end METHOD boundaryCheck
+  
+  boolean clashCheck(Square square, int mult)
+  {
+    for (int i = 0; i < 18; i++)
+    {
+      for (int j = 0; j < 10; j++)
+      {
+        if ((int)(square.xy.x + (measure * mult)) == (int)cells[i][j].ordinates.x && (int)square.xy.y == (int)cells[i][j].ordinates.y && cells[i][j].active == false)
+        {
+          return false;
+        }
+      }//end for
+    }//end for
+    return true;
+  }//end METHOD checkClash()
 }//end CLASS Square

@@ -18,7 +18,7 @@ void keyPressed()
     
     for (int i = 0; i < liveShape.size(); i++)
     {
-      if (false == liveShape.get(i).boundaryCheck('l'))
+      if (false == liveShape.get(i).boundaryCheck('l') || false == liveShape.get(i).clashCheck(liveShape.get(i), -1))
       {
         boolCheck++;
       }//end if
@@ -42,7 +42,7 @@ void keyPressed()
     
     for (int i = 0; i < liveShape.size(); i++)
     {
-      if (false == liveShape.get(i).boundaryCheck('r'))
+      if (false == liveShape.get(i).boundaryCheck('r') || false == liveShape.get(i).clashCheck(liveShape.get(i), 1))
       {
         boolCheck++;
       }//end if
