@@ -12,9 +12,7 @@ public class Square
   Square()
   {
     float lengths = ((height - map(50, 0, 384, 0, height)) / 18.0f);
-    xy = new PVector(0,0);
-    x= 0;
-    y = 0;
+    
     fill(0);
     
     //Beginning to draw the square PShape
@@ -26,6 +24,13 @@ public class Square
     square.vertex(0.0f, lengths);
     square.vertex(lengths, lengths);
     square.vertex(lengths, 0.0f);
+    
+    center = false;
+    
+    this.x = cells[(int)y][(int)x].ordinates.x;
+    this.y = cells[(int)y][(int)x].ordinates.y;
+    
+    xy = new PVector(this.x, this.y);
     
     square.endShape(CLOSE);
   }

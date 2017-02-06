@@ -24,10 +24,6 @@ class Cell
   void cellCopy(Cell newCell)
   {
     this.active = newCell.active;
-    this.ordinates.x = newCell.ordinates.x;
-    this.ordinates.y = newCell.ordinates.y;
-    this.x = newCell.x;
-    this.y = newCell.y;
     
     square = getSquare(square, newCell.square);
   }//end METHOD cellCopy()
