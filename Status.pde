@@ -5,6 +5,7 @@ class Status
   private int downCheck;
   private int score;
   private boolean lock;
+  private long tetris;
   
   /*
     A constructor that sets up a games state
@@ -17,6 +18,24 @@ class Status
     downCheck = 0;
     lock = true;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to set Tetris
+  */
+  
+  void setTetris()
+  {
+    tetris = frameCount;
+  }//end METHOD setTetris
+  
+  /*
+    Method to get Tetris
+  */
+  
+  long getTetris()
+  {
+    return tetris;
+  }//end METHOD setTetris
   
   /*
     Method to set GameLock

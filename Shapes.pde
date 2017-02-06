@@ -82,7 +82,7 @@ public class Shapes extends Square
     copyShape.add(new Square(measure, 5, 0, #FF6600, 'R'));
     copyShape.add(new Square(measure, 6, 0, #FF6600, 'R'));
     
-    checkRotate = 0;
+    //checkRotate = 0;
     
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
@@ -116,7 +116,7 @@ public class Shapes extends Square
     copyShape.get(3).connect.add(liveShape.get(2));
     copyShape.get(0).connect.add(liveShape.get(1));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*
@@ -142,7 +142,7 @@ public class Shapes extends Square
     copyShape.get(1).connect.add(liveShape.get(2));
     copyShape.get(2).connect.add(liveShape.get(3));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*
@@ -168,7 +168,7 @@ public class Shapes extends Square
     copyShape.get(2).connect.add(liveShape.get(3));
     copyShape.get(1).connect.add(liveShape.get(0));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*
@@ -194,7 +194,7 @@ public class Shapes extends Square
     copyShape.get(1).connect.add(liveShape.get(2));
     copyShape.get(0).connect.add(liveShape.get(3));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*
@@ -220,7 +220,7 @@ public class Shapes extends Square
     copyShape.get(1).connect.add(liveShape.get(2));
     copyShape.get(1).connect.add(liveShape.get(3));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*
@@ -238,7 +238,7 @@ public class Shapes extends Square
     copyShape.add(new Square(measure, 5, 0, #FF0000, 'N'));
     copyShape.add(new Square(measure, 5, 1, #FF0000, 'N'));
     
-    checkRotate = 0;
+    //checkRotate = 0;
   }
   
   /*

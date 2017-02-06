@@ -6,6 +6,7 @@ class MainMenu
   float intro = 0;
   color tColour = 0;
   color gameColour = 0;
+  float enterTime = 0;
   
   /*
     Setter

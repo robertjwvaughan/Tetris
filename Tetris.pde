@@ -1,3 +1,5 @@
+import ddf.minim.*;
+
 //#CC00FF - Pink (J)
 //#FF6600 - Orange (I)
 //#66CCFF - Turk (S)
@@ -18,15 +20,20 @@ MainMenu menu;
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
 ArrayList<Square> copyShape = new ArrayList<Square>();
+//Arraylist to store int values as index for a Tetris line
+ArrayList<Integer> list = new ArrayList<Integer>();
 ArrayList<Leaderboards> leaderBoard = new ArrayList<Leaderboards>();
 
 Cell cells[][] = new Cell[18][10];
 
 int changeScreen;
 
-int checkRotate;
+//int checkRotate;
 
 Table t;
+
+PFont font;
+boolean frameChange = true;
 
 void setup()
 {
@@ -34,6 +41,8 @@ void setup()
   size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
+  font = loadFont("HPSimplified-Bold-48.vlw");
+  textFont(font);
   //Creates the board object
   backBoard = new Board(((height - map(50, 0, 384, 0, height)) / 18.0f));
   gameStatus = new Status();
@@ -59,14 +68,10 @@ void draw()
       backBoard.defaultBackground();
       gameStatus.downCheckZero();
       
-      checkCells();
-      checkCells();
-      
       pushMatrix();
         
         //Translates the sketch so the boards edge is (0,0)
-        translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
-        
+        translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f); 
         //backBoard.nodeDraw();
         liveShape.clear();
         copyShape.clear();
@@ -80,16 +85,28 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
-              //fill(0);
+              fill(255);
+              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
               cells[i][j].drawSquare();
-            }
+            }//end else
+            else
+            {
+              fill(0);
+              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+            }//end else
           }//end for
         }//end for
         
       popMatrix();
       
-      //System.out.println(shape.xy.x +" "+ shape.xy.y);
-      changeScreen = 1;
+      if (list.size() == 0)
+      {
+        changeScreen = 1;
+      }//end if
+      else
+      {
+        changeScreen = 5;
+      }//end else
       break;
     }//end case 0
     case 1:
@@ -97,7 +114,7 @@ void draw()
       background(#CADCF0);
       //Draws background
       backBoard.defaultBackground();
-      //checkCells();
+      
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
@@ -135,8 +152,15 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
+              fill(255);
+              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
               cells[i][j].drawSquare();
             }//end if
+            else
+            {
+              fill(0);
+              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+            }//end else
           }//end for
         }//end for
       popMatrix();
@@ -149,6 +173,7 @@ void draw()
     
       gameStatus.downCheckInc();
       gameStatus.downCheck();
+      checkCells(); 
       break;
     }
     case 2:
@@ -186,10 +211,6 @@ void draw()
         fill(#FF0000);
       popMatrix();
       text("PRESS ENTER", width / 2.0f, (height / 2.0f) + (height / 4.0f));
-      
-      //PAY ATTENTION TO ME 
-      for ()
-      
       break;
     }//end case 3
     case 4:
@@ -212,13 +233,20 @@ void draw()
         else
         {
           //Changes game type and sets T shape colour
-          menu.setTColour(#FF0000);
+          menu.setTColour(#FFFF00);
           menu.setGameColour(#CADCF0);
           changeScreen = 3;
         }//end else
       popMatrix();
       break;
     }//end case 4 (Intro)
+    //Case to highlight tetris
+    case 5:
+    {
+      //System.out.println("GHEWJHFKLADFHLKAHFLAKSFCHASKLCSALKHCLAK");
+      tetris();
+      break;
+    }//end case 5
   }//end switch
 }//end draw
 
@@ -254,6 +282,12 @@ boolean generalDown()
             {
               gameStatus.swapShapes();
               changeScreen = 0;
+              
+              if (list.size() > 0)
+              {
+                changeScreen = 5;
+              }//end if
+              
               return false;
             }//end if
           }//end if
@@ -289,8 +323,7 @@ boolean generalDown()
 void checkCells()
 {
   int numLines = 0;
-  ArrayList<Integer> list = new ArrayList<Integer>();
-  
+  list.clear();
   for (int i = 17; i >= 0; i--)
   {
     int check = 0;
@@ -310,9 +343,14 @@ void checkCells()
     }//end if
   }//end for
   
+  if (numLines > 0 || list.size() > 0)
+  {
+    changeScreen = 5;
+  }//end if
+  
   if (numLines == 4)
   {
-    
+    //stop();
   }//end if
   
   //System.out.println(list.size() + "HUSND");
@@ -331,5 +369,52 @@ void checkCells()
       }//end for
     }//end for
   }//end for
-  
 }//end METHOD
+
+/*
+  Method to animate Tetris
+*/
+
+void tetris()
+{
+  long saveFrame;
+  //Saves frame rate
+  
+   pushMatrix();
+    
+    //Translates the sketch so the boards edge is (0,0)
+    translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+    if (frameChange == true)
+    {
+      gameStatus.setTetris();
+      saveFrame = gameStatus.getTetris() + 60;
+      frameChange = false;
+    }//end if
+    
+    saveFrame = gameStatus.getTetris() + 60;
+    
+    if (saveFrame != frameCount)
+    {
+      for (int i = 0; i < list.size(); i++)
+      {
+        if (frameCount % 3 == 0)
+        {
+          fill(0);
+          rect(0, cells[list.get(i)][0].ordinates.y, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10, ((height - map(50, 0, 384, 0, height)) / 18.0f));
+        }//end if
+        else
+        {
+          fill(255);
+          rect(0, cells[list.get(i)][0].ordinates.y, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10, ((height - map(50, 0, 384, 0, height)) / 18.0f));
+        }//end else
+      }//end for
+    }//end if
+    else
+    {
+      changeScreen = 0;
+      frameChange = true;
+      list.clear();
+    }
+    
+   popMatrix();
+}//end METHOF tetris()
