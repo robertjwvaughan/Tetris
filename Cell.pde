@@ -1,4 +1,4 @@
-class Cell
+class Cell extends Board
 {
   boolean active;
   PVector ordinates;

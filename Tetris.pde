@@ -74,7 +74,6 @@ void draw()
         
         System.out.println("Shape call");
         
-        
         for (int i = 17; i >= 0; i--)
         {
           for (int j = 0; j < 10; j++)
@@ -104,8 +103,7 @@ void draw()
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         //backBoard.nodeDraw();
         
-        //Redraws the current shape after each frame
-        
+        //Game Over check
         for (int i = 0; i < 2; i++)
         {
           for (int j = 0; j < 10; j++)
@@ -124,12 +122,13 @@ void draw()
           }//end for
         }//end for
         
-        
+        //Draws live shapes
         for (int i = 0; i < liveShape.size(); i++)
         {
           liveShape.get(i).drawSquare();
         }//end for
         
+        //Draws dead shapes
         for (int i = 17; i >= 0; i--)
         {
           for (int j = 0; j < 10; j++)
@@ -137,10 +136,17 @@ void draw()
             if (cells[i][j].active == false)
             {
               cells[i][j].drawSquare();
-            }
+            }//end if
           }//end for
         }//end for
       popMatrix();
+      
+      //Copying object field values to another
+      for (int i = 0; i < liveShape.size(); i++)
+      {
+        shape.copyValues(copyShape.get(i), liveShape.get(i));
+      }//end for
+    
       gameStatus.downCheckInc();
       gameStatus.downCheck();
       break;
@@ -175,7 +181,15 @@ void draw()
         
         menu.TShape(menu.getTColour());
         
+        textSize(map(30, 0, 683, 0, width));
+        textAlign(CENTER, CENTER);
+        fill(#FF0000);
       popMatrix();
+      text("PRESS ENTER", width / 2.0f, (height / 2.0f) + (height / 4.0f));
+      
+      //PAY ATTENTION TO ME 
+      for ()
+      
       break;
     }//end case 3
     case 4:
@@ -198,7 +212,7 @@ void draw()
         else
         {
           //Changes game type and sets T shape colour
-          menu.setTColour(#FFFF00);
+          menu.setTColour(#FF0000);
           menu.setGameColour(#CADCF0);
           changeScreen = 3;
         }//end else

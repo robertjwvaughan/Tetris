@@ -77,13 +77,20 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0, #FF6600, 'R'));
     liveShape.add(new Square(measure, 6, 0, #FF6600, 'R'));
     
+    copyShape.add(new Square(measure, 3, 0, #FF6600, 'L'));
+    copyShape.add(new Square(measure, 4, 0, #FF6600, 'C'));
+    copyShape.add(new Square(measure, 5, 0, #FF6600, 'R'));
+    copyShape.add(new Square(measure, 6, 0, #FF6600, 'R'));
+    
     checkRotate = 0;
     
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
     liveShape.get(2).connect.add(liveShape.get(3));
     
-    
+    copyShape.get(1).connect.add(liveShape.get(0));
+    copyShape.get(1).connect.add(liveShape.get(2));
+    copyShape.get(2).connect.add(liveShape.get(3));
   }//end METHOD I
   
   /*
@@ -96,10 +103,18 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 3, 1, #66CCFF, 'L'));
     liveShape.add(new Square(measure, 4, 1, #66CCFF, 'C'));
 
-    
     liveShape.get(3).connect.add(liveShape.get(0));
     liveShape.get(3).connect.add(liveShape.get(2));
     liveShape.get(0).connect.add(liveShape.get(1));
+    
+    copyShape.add(new Square(measure, 4, 0, #66CCFF, 'U'));
+    copyShape.add(new Square(measure, 5, 0, #66CCFF, 'R'));
+    copyShape.add(new Square(measure, 3, 1, #66CCFF, 'L'));
+    copyShape.add(new Square(measure, 4, 1, #66CCFF, 'C'));
+
+    copyShape.get(3).connect.add(liveShape.get(0));
+    copyShape.get(3).connect.add(liveShape.get(2));
+    copyShape.get(0).connect.add(liveShape.get(1));
     
     checkRotate = 0;
   }
@@ -114,11 +129,20 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0, #CC00FF, 'R'));
     liveShape.add(new Square(measure, 5, 1, #CC00FF, 'D'));
     
-    checkRotate = 0;
-    
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
     liveShape.get(2).connect.add(liveShape.get(3));
+    
+    copyShape.add(new Square(measure, 3, 0, #CC00FF, 'L'));
+    copyShape.add(new Square(measure, 4, 0, #CC00FF, 'C'));
+    copyShape.add(new Square(measure, 5, 0, #CC00FF, 'R'));
+    copyShape.add(new Square(measure, 5, 1, #CC00FF, 'D'));
+    
+    copyShape.get(1).connect.add(liveShape.get(0));
+    copyShape.get(1).connect.add(liveShape.get(2));
+    copyShape.get(2).connect.add(liveShape.get(3));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -131,11 +155,20 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 4, 1, #00FF00, 'C'));
     liveShape.add(new Square(measure, 5, 1, #00FF00, 'R'));
     
-    checkRotate = 0;
-    
     liveShape.get(2).connect.add(liveShape.get(1));
     liveShape.get(2).connect.add(liveShape.get(3));
     liveShape.get(1).connect.add(liveShape.get(0));
+    
+    copyShape.add(new Square(measure, 3, 0, #00FF00, 'L'));
+    copyShape.add(new Square(measure, 4, 0, #00FF00, 'U'));
+    copyShape.add(new Square(measure, 4, 1, #00FF00, 'C'));
+    copyShape.add(new Square(measure, 5, 1, #00FF00, 'R'));
+    
+    copyShape.get(2).connect.add(liveShape.get(1));
+    copyShape.get(2).connect.add(liveShape.get(3));
+    copyShape.get(1).connect.add(liveShape.get(0));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -148,11 +181,20 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0, #0000FF, 'R'));
     liveShape.add(new Square(measure, 3, 1, #0000FF, 'D'));
     
-    checkRotate = 0;
-    
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
     liveShape.get(0).connect.add(liveShape.get(3));
+    
+    copyShape.add(new Square(measure, 3, 0, #0000FF, 'L'));
+    copyShape.add(new Square(measure, 4, 0, #0000FF, 'C'));
+    copyShape.add(new Square(measure, 5, 0, #0000FF, 'R'));
+    copyShape.add(new Square(measure, 3, 1, #0000FF, 'D'));
+    
+    copyShape.get(1).connect.add(liveShape.get(0));
+    copyShape.get(1).connect.add(liveShape.get(2));
+    copyShape.get(0).connect.add(liveShape.get(3));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -165,11 +207,20 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 5, 0, #FFFF00, 'R'));
     liveShape.add(new Square(measure, 4, 1, #FFFF00, 'D'));
     
-    checkRotate = 0;
-    
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
     liveShape.get(1).connect.add(liveShape.get(3));
+    
+    copyShape.add(new Square(measure, 3, 0, #FFFF00, 'L'));
+    copyShape.add(new Square(measure, 4, 0, #FFFF00, 'C'));
+    copyShape.add(new Square(measure, 5, 0, #FFFF00, 'R'));
+    copyShape.add(new Square(measure, 4, 1, #FFFF00, 'D'));
+    
+    copyShape.get(1).connect.add(liveShape.get(0));
+    copyShape.get(1).connect.add(liveShape.get(2));
+    copyShape.get(1).connect.add(liveShape.get(3));
+    
+    checkRotate = 0;
   }
   
   /*
@@ -181,6 +232,11 @@ public class Shapes extends Square
     liveShape.add(new Square(measure, 4, 1, #FF0000, 'N'));
     liveShape.add(new Square(measure, 5, 0, #FF0000, 'N'));
     liveShape.add(new Square(measure, 5, 1, #FF0000, 'N'));
+    
+    copyShape.add(new Square(measure, 4, 0, #FF0000, 'N'));
+    copyShape.add(new Square(measure, 4, 1, #FF0000, 'N'));
+    copyShape.add(new Square(measure, 5, 0, #FF0000, 'N'));
+    copyShape.add(new Square(measure, 5, 1, #FF0000, 'N'));
     
     checkRotate = 0;
   }
@@ -266,14 +322,13 @@ public class Shapes extends Square
       Swaps values into active array list
     */
     
-    if (pass == 0)
+    if (pass > 0)
     {
-      
+      for (int i = 0; i < liveShape.size(); i++)
+      {
+        copyValues(copyShape.get(i), liveShape.get(i));
+      }//end for
     }//end if
-    else
-    {
-      
-    }//end else
     
     pass = 0;
   }//end METHOD testI()
@@ -421,4 +476,23 @@ public class Shapes extends Square
       connect.xy.y = origin.xy.y + measure;
     }//end if
   }//end METHOD
+  
+  /*
+    Method that copies a Square object into another
+  */
+  
+  void copyValues(Square newSquare, Square oldSquare)
+  {
+    newSquare.square = oldSquare.square;
+    newSquare.xy.x = oldSquare.xy.x;
+    newSquare.xy.y = oldSquare.xy.y;
+    newSquare.measure = oldSquare.measure;
+    newSquare.center = oldSquare.center;
+    newSquare.pos = oldSquare.pos;
+    
+    for (int i = 0; i < oldSquare.connect.size(); i++)
+    {
+      copyValues(newSquare.connect.get(i), oldSquare.connect.get(i));
+    }//end for
+  }//end METHOD copyValues
 }//end CLASS Shapes
