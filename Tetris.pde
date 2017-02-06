@@ -41,7 +41,8 @@ void setup()
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
-  changeScreen = 3;
+  changeScreen = 4;
+  background(#CADCF0);
   menu = new MainMenu((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
@@ -80,12 +81,11 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
-              fill(0);
+              //fill(0);
               cells[i][j].drawSquare();
             }
           }//end for
         }//end for
-        
         
       popMatrix();
       
@@ -169,11 +169,40 @@ void draw()
     {
       background(#CADCF0);
       gameStatus.changeLock();
+      pushMatrix();
+        //Translates the sketch so the baords corner is (0,0)
+        translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+        
+        menu.TShape(menu.getTColour());
+        
+      popMatrix();
       break;
     }//end case 3
     case 4:
     {
-      menu.intro();
+      color tColour;
+      color gameColour;
+     
+      pushMatrix();
+        //Translates the sketch so the baords corner is (0,0)
+        translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+        
+        if (frameCount <= 300)
+        {
+          //Lerps colours to frameCount to have a transition fade
+          tColour = lerpColor(0, #FFFF00, ((1.0f / 300.0f) * frameCount));
+          gameColour = lerpColor(0, #CADCF0, ((1.0f / 300.0f) * frameCount));
+          background(gameColour);
+          menu.TShape(tColour);
+        }//end if
+        else
+        {
+          //Changes game type and sets T shape colour
+          menu.setTColour(#FFFF00);
+          menu.setGameColour(#CADCF0);
+          changeScreen = 3;
+        }//end else
+      popMatrix();
       break;
     }//end case 4 (Intro)
   }//end switch
