@@ -30,8 +30,8 @@ Table t;
 
 void setup()
 {
-  fullScreen();
-  //size(683, 384);
+  //fullScreen();
+  size(683, 384);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   //Creates the board object
@@ -147,7 +147,6 @@ void draw()
             }
           }//end for
         }//end for
-   
       popMatrix();
       gameStatus.downCheckInc();
       gameStatus.downCheck();
@@ -281,9 +280,7 @@ void checkCells()
     {
       for (int k = 0; k < 10; k++)
       {
-        cells[j][k].x = cells[j - 1][k].x;
-        cells[j][k].y = cells[j - 1][k].y;
-        cells[j][k].active = cells[j - 1][k].active;
+        cells[j][k].cellCopy(cells[j - 1][k]);
       }//end for
     }//end for
   }//end for

@@ -82,6 +82,8 @@ public class Shapes extends Square
     liveShape.get(1).connect.add(liveShape.get(0));
     liveShape.get(1).connect.add(liveShape.get(2));
     liveShape.get(2).connect.add(liveShape.get(3));
+    
+    
   }//end METHOD I
   
   /*

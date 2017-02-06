@@ -11,7 +11,23 @@ public class Square
   
   Square()
   {
+    float lengths = ((height - map(50, 0, 384, 0, height)) / 18.0f);
     xy = new PVector(0,0);
+    x= 0;
+    y = 0;
+    fill(0);
+    
+    //Beginning to draw the square PShape
+    square = createShape();
+    square.beginShape();
+    
+    square.vertex(0.0f, 0.0f);
+    square.vertex(0.0f, lengths);
+    square.vertex(0.0f, lengths);
+    square.vertex(lengths, lengths);
+    square.vertex(lengths, 0.0f);
+    
+    square.endShape(CLOSE);
   }
   
   //Constructor that passes the length of the square

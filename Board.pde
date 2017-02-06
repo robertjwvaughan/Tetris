@@ -38,6 +38,7 @@ class Board implements gameTrack
       {
         //Cell is set to true for no square is on it
         cells[i][j] = new Cell(j * square, i * square);
+        cells[i][j].square = new Square();
         point(j * square, i * square);
       }//end for
     }//end for
