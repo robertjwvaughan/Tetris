@@ -68,6 +68,7 @@ void draw()
       gameStatus.downCheckZero();
       
       checkCells();
+      checkCells();
       
       pushMatrix();
         
@@ -106,7 +107,7 @@ void draw()
       background(#CADCF0);
       //Draws background
       backBoard.defaultBackground();
-      checkCells();
+      //checkCells();
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
@@ -273,7 +274,11 @@ void checkCells()
     
   }//end if
   
-  System.out.println(list.size() + "HUSND");
+  //System.out.println(list.size() + "HUSND");
+  
+  /*
+    Shapes are drawn downwards
+  */
   
   for (int i = 0; i < list.size(); i++)
   {
@@ -285,4 +290,5 @@ void checkCells()
       }//end for
     }//end for
   }//end for
+  
 }//end METHOD

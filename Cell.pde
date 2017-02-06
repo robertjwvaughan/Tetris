@@ -28,6 +28,10 @@ class Cell
     square = getSquare(square, newCell.square);
   }//end METHOD cellCopy()
   
+  /*
+    Method that copies a square into another object
+  */
+  
   Square getSquare(Square oldSquare, Square newSquare)
   {
     oldSquare.square = newSquare.square;
