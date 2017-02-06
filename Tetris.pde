@@ -41,7 +41,7 @@ void setup()
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
-  changeScreen = 0;
+  changeScreen = 3;
   /*
   for (int i = 0; i < 18; i++)
   {
