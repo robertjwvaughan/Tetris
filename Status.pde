@@ -4,6 +4,7 @@ class Status
   private int shapeIndex;
   private int downCheck;
   private int score;
+  private boolean lock;
   
   /*
     A constructor that sets up a games state
@@ -14,7 +15,26 @@ class Status
     playing = true;
     shapeIndex = (int)random(0,7);
     downCheck = 0;
+    lock = true;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to set GameLock
+  */
+  
+  boolean getLock()
+  {
+    return lock;
+  }//end ACCESSOR getLock()
+  
+  /*
+    Method to return GameLock
+  */
+  
+  void changeLock()
+  {
+    lock = false;
+  }//end SETTER
   
   /*
     Method that returns the game score

@@ -24,3 +24,10 @@ Tetris is a tile-matching puzzle video game and was the first entertainment soft
 
 * Leaderboard
   * 
+
+# Key Notes
+
+* A branch known as 'test' was created to refacture
+* 
+* 
+* 

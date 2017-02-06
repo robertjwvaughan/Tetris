@@ -75,7 +75,10 @@ void keyPressed()
   {
     if (changeScreen == 3)
     {
-      changeScreen = 0;
+      if (gameStatus.getLock() == false)
+      {
+        changeScreen = 0;
+      }//end if
     }//end if
   }//end if 
 }//end keyPressed

@@ -14,7 +14,7 @@
 Board backBoard;//Tetris board
 Status gameStatus;//Status of the game tracked
 Shapes shape;//Shape object
-
+MainMenu menu;
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
 ArrayList<Square> copyShape = new ArrayList<Square>();
@@ -42,16 +42,7 @@ void setup()
   backBoard.nodeDraw();
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
   changeScreen = 3;
-  /*
-  for (int i = 0; i < 18; i++)
-  {
-    for (int j = 0; j < 10; j++)
-    {
-      
-    }//end for
-  }//end for
-  */
-  background(#CADCF0);
+  menu = new MainMenu((height - map(50, 0, 384, 0, height)) / 18.0f);
 }//end setup
 
 void draw()
@@ -176,8 +167,15 @@ void draw()
     }//end case 2 
     case 3:
     {
-      
+      background(#CADCF0);
+      gameStatus.changeLock();
+      break;
     }//end case 3
+    case 4:
+    {
+      menu.intro();
+      break;
+    }//end case 4 (Intro)
   }//end switch
 }//end draw
 
