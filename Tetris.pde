@@ -39,6 +39,7 @@ void setup()
 {
   //fullScreen();
   size(683, 384);
+  frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
   font = loadFont("HPSimplified-Bold-48.vlw");
@@ -80,10 +81,19 @@ void draw()
         
         //Translates the sketch so the boards edge is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f); 
+        
+        textAlign(LEFT, BOTTOM);
+        textSize(map(15, 0, 683, 0, width));
+        fill(0);
+        text("Score: " + gameStatus.getScore(), 0, 0);
+        
         //backBoard.nodeDraw();
         liveShape.clear();
         copyShape.clear();
         gameStatus.chooseShape();
+        
+        textAlign(CENTER,TOP);
+        fill(0);
         
         System.out.println("Shape call");
         
@@ -120,6 +130,11 @@ void draw()
         //Translates the sketch so the baords corner is (0,0)
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
         //backBoard.nodeDraw();
+        
+        textAlign(LEFT, BOTTOM);
+        textSize(map(15, 0, 683, 0, width));
+        fill(0);
+        text("Score: " + gameStatus.getScore(), 0, 0);
         
         //Game Over check
         for (int i = 0; i < 2; i++)

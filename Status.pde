@@ -28,7 +28,7 @@ class Status
     enter = false;
     menu = false;
     mChoice = 0;
-    multi = 1;
+    multi = 1.25;
     leaderCount = 0;
   }//end CONSTRUCTOR Status
   
@@ -108,7 +108,7 @@ class Status
   */
   void addScore()
   {
-    score = int(10 * multi);
+    score += int(10 * multi);
   }//end METHOD addScore
   
   /*
@@ -286,6 +286,8 @@ class Status
         }//end if
       }//end for
     }//end for
+    
+    gameStatus.addScore();
   }//end swapShapes()
   
   /*
