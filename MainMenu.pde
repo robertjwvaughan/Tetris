@@ -114,6 +114,7 @@ class MainMenu
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f));
         noStroke();
         textAlign(CENTER, CENTER);
+        textSize(map(20, 0, 683, 0, width));
         
         for (int i = 0; i < modes.size(); i++)
         {
@@ -142,13 +143,13 @@ class MainMenu
   
   void leaderBoard()
   {
-    textSize(map(29, 0, 683, 0, width));
+    textSize(map(25, 0, 683, 0, width));
     
     //Title of page
     fill(0);
     text("LEADERBOARD", width / 2.0f, (((height / 4.0f) * 1.f) + 0) / 2.0f);
     
-    textSize(map(30, 0, 683, 0, width));
+    textSize(map(27, 0, 683, 0, width));
     
     //Check to see if there are values in the leaderboard
     if (leaderBoard.size() == 0)
@@ -165,7 +166,7 @@ class MainMenu
       gameStatus.getLeader();
       
       fill(#FF0000);
-      text(leaderBoard.get(gameStatus.getLeader()).pos, width / 2.0f, (height / 4.0f) * 1.f);
+      text("#" + leaderBoard.get(gameStatus.getLeader()).pos, width / 2.0f, (height / 4.0f) * 1.f);
       text(leaderBoard.get(gameStatus.getLeader()).name, width / 2.0f, (height / 4.0f) * 2.f);
       text(leaderBoard.get(gameStatus.getLeader()).score, width / 2.0f, (height / 4.0f) * 3.f);
     }//end else

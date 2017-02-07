@@ -37,12 +37,12 @@ boolean frameChange = true;
 
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
-  font = loadFont("HPSimplified-Bold-48.vlw");
+  font = loadFont("LeelawadeeUI-Bold-48.vlw");
   textFont(font);
   //Creates the board object
   backBoard = new Board(((height - map(50, 0, 384, 0, height)) / 18.0f));
@@ -298,6 +298,11 @@ void draw()
   }//end switch
 }//end draw
 
+/*
+  Method that loads data from the leaderboard file
+  into an arraylist
+*/
+
 void loadFile()
 {
   t = loadTable("leaderboard.csv", "header");
@@ -311,6 +316,11 @@ void loadFile()
     leaderBoard.add(rowFetch);
   }//end for
 }//end loadFile()
+
+/*
+  Method that pushes shapes down and swaps
+  a shape into the cells array if it is marked as dead
+*/
 
 boolean generalDown()
 {

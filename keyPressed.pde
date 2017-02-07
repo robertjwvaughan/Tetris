@@ -112,6 +112,7 @@ void keyPressed()
       gameStatus.setMenu(true);
       liveShape.clear();
       copyShape.clear();
+      System.out.println("BLEH");
     }//end if
   }//end if
   
