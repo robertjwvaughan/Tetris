@@ -37,8 +37,8 @@ boolean frameChange = true;
 
 void setup()
 {
-  fullScreen();
-  //size(683, 384);
+  //fullScreen();
+  size(683, 384);
   frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
@@ -147,7 +147,7 @@ void draw()
               {
                 if (cells[i][j].active == false)
                 {
-                  changeScreen = 2;
+                  changeScreen = 2;//GAme Over
                   gameStatus.changeState();
                 }//end if
               }//end if

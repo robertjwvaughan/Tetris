@@ -130,8 +130,7 @@ class Status
   
   void changeChoice(int value)
   {
-    mChoice = mChoice + value;
-    mChoice = mChoice % 4;
+    mChoice = (mChoice + value) % 4;
   }//end METHOD changeChoice
   
   /*
@@ -318,28 +317,34 @@ class Status
   }//end METHOD downCheckZero()
   
   /*
+    Restart game
+  */
+  
+  void restartData()
+  {
+    score = 0;
+    playing = true;
+    shapeIndex = (int)random(0,7);
+    downCheck = 0;
+    lock = true;
+    enter = true;
+    menu = true;
+    mChoice = 0;
+    multi = 1.25;
+    leaderCount = 0;
+  }//end METHOD saveData
+  
+  /*
     Sort List
   */
   
   void sortList()
   {
-    ArrayList<Leaderboards> newScores = new ArrayList<Leaderboards>();
+    String name = "";
     
-    //Checks if the leader board contains 
-    if (leaderBoard.size() == 0)
-    {
-      
-    }//end if
-    else
-    {
-      
-    }//end else
-    for (int i = 0; i < list.size(); i++)
-    {
-      if (getScore() == 0)
-      {
-        
-      }//end if
-    }//end for
+    name += getChar(0);
+    name += getChar(1);
+    name += getChar(2);
+    
   }//end METHOD sortList()
 }//enn CLASS Status

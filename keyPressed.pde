@@ -108,11 +108,17 @@ void keyPressed()
     //Return to menu from game over
     if (changeScreen == 2)
     {
-      changeScreen = 3;
       gameStatus.setMenu(true);
       liveShape.clear();
       copyShape.clear();
-      System.out.println("BLEH");
+      
+      gameStatus.sortList();
+      loadFile();
+      
+      leaderBoard.clear();
+      
+      gameStatus.restartData();
+      changeScreen = 3;
     }//end if
   }//end if
   
