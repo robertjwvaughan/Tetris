@@ -92,7 +92,15 @@ void keyPressed()
       {
         case 0:
         {
+          changeScreen = 0;
+          gameStatus.setMenu(false);
+          break;
         }//end case 0 (play)
+        case 3:
+        {
+          //Exits program
+          exit();
+        }//end case 3
       }//end switch
     }//end if
   }//end if
@@ -111,5 +119,15 @@ void keyPressed()
     {
       gameStatus.changeChoice(1);
     }//end if
+  }//end if
+  
+  if (keyCode == LEFT)
+  {
+    
+  }//end if
+  
+  if (keyCode == RIGHT)
+  {
+    
   }//end if
 }//end keyPressed

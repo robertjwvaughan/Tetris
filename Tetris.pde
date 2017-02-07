@@ -53,6 +53,7 @@ void setup()
   changeScreen = 4;
   background(#CADCF0);
   menu = new MainMenu((height - map(50, 0, 384, 0, height)) / 18.0f);
+  loadFile();
 }//end setup
 
 void draw()
@@ -67,7 +68,7 @@ void draw()
       background(#CADCF0);
       backBoard.defaultBackground();
       gameStatus.downCheckZero();
-      
+      //checkCells();
       pushMatrix();
         
         //Translates the sketch so the boards edge is (0,0)
@@ -99,14 +100,7 @@ void draw()
         
       popMatrix();
       
-      if (list.size() == 0)
-      {
-        changeScreen = 1;
-      }//end if
-      else
-      {
-        changeScreen = 5;
-      }//end else
+      changeScreen = 1;
       break;
     }//end case 0
     case 1:
@@ -172,8 +166,7 @@ void draw()
       }//end for
     
       gameStatus.downCheckInc();
-      gameStatus.downCheck();
-      checkCells(); 
+      gameStatus.downCheck(); 
       break;
     }
     case 2:
@@ -266,12 +259,19 @@ void draw()
       tetris();
       break;
     }//end case 5
+    case 6:
+    {
+      background(#CADCF0);
+      backBoard.defaultBackground();
+      
+      menu.leaderBoard();
+    }//end case 6 (leaderbaord display)
   }//end switch
 }//end draw
 
 void loadFile()
 {
-  t = loadTable("data.csv", "header");
+  t = loadTable("leaderboard.csv", "header");
   
   //CLearing of data
   leaderBoard.clear();
@@ -334,7 +334,7 @@ boolean generalDown()
   else
   {
     gameStatus.swapShapes();
-    changeScreen = 0;
+    checkCells();
     return false;
   }//end else
 }
@@ -366,6 +366,10 @@ void checkCells()
   {
     changeScreen = 5;
   }//end if
+  else
+  {
+    changeScreen = 0;
+  }//end else
   
   if (numLines == 4)
   {
@@ -389,7 +393,6 @@ void checkCells()
     }//end for
   }//end for
 }//end METHOD
-
 /*
   Method to animate Tetris
 */

@@ -27,7 +27,10 @@ Tetris is a tile-matching puzzle video game and was the first entertainment soft
 
 # Key Notes
 
-* A branch known as 'test' was created to refacture
-* 
-* 
-* 
+* A branch known as 'test' was created to refacture code by 400 lines
+* Lerp fade in affect at the start of the game
+* Tetris animation when sound is played
+* Interface for necessary methods
+* Polymorphism with ArrayLists
+* File I/O with Leaderboard
+* User input

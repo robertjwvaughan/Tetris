@@ -9,10 +9,13 @@ class Status
   private boolean enter;
   private boolean menu;
   private int mChoice;
+  private float multi;
+  private int leaderCount;
   
   /*
     A constructor that sets up a games state
   */
+  
   Status()
   {
     score = 0;
@@ -23,7 +26,25 @@ class Status
     enter = false;
     menu = false;
     mChoice = 0;
+    multi = 1;
+    leaderCount = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to add to score
+  */
+  void addScore()
+  {
+    score = int(10 * multi);
+  }//end METHOD addScore
+  
+  /*
+    Inc multi
+  */
+  void incMulti()
+  {
+    multi += .25;
+  }//end METHOD multi
   
   /*
     Method to get menu choice
