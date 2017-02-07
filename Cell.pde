@@ -25,18 +25,16 @@ class Cell extends Board
   {
     this.active = newCell.active;
     
-    square = getSquare(square, newCell.square);
+    getSquare(square, newCell.square);
   }//end METHOD cellCopy()
   
   /*
     Method that copies a square into another object
   */
   
-  Square getSquare(Square oldSquare, Square newSquare)
+  void getSquare(Square oldSquare, Square newSquare)
   {
     oldSquare.square = newSquare.square;
-    oldSquare.xy.x = newSquare.xy.x;
-    return (oldSquare);
   }//end MEHTHOD getSquare()
   /*
     Method that draws a cells stored square

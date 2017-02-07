@@ -7,6 +7,7 @@ class MainMenu
   color tColour = 0;
   color gameColour = 0;
   float enterTime = 0;
+  int menuValue = 0;
   
   /*
     Setter
@@ -78,4 +79,45 @@ class MainMenu
       T.get(i).drawSquare();
     }//end for
   }//end MEHTOD TShape()
+  
+  /*
+    Method that creates a main menu
+  */
+  
+  void createMenu()
+  {
+    backBoard.defaultBackground();
+    
+     pushMatrix();
+        //Translates the sketch so the baords corner is 0,half
+        translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f));
+        noStroke();
+        textAlign(CENTER, CENTER);
+        
+        rect(0, 0, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, (height - (map(50, 0, 384, 0, height))) / 2.0f);
+        
+        text("PLAY", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, (0 + ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) / 2.0f);
+        
+        rect(0, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+        
+        text("LEADERBOARD", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f)) / 2.0f);
+        
+        rect(0, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+        
+        text("LEADERBOARD", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f)) / 2.0f);
+        
+        rect(0, (((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 3.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+        
+        
+     popMatrix();
+  }//end methodCreate menu
+  
+  /*
+    Method that takes a users option in terms of menu selection
+  */
+  
+  void menuAction()
+  {
+    
+  }//end METHOD menuAction
 }//end CLASS MainMenu

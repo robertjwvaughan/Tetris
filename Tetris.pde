@@ -196,9 +196,11 @@ void draw()
       text(gameStatus.getScore(), width / 2.0f, height / 2.0f + map(20, 0, 384, 0, height));
       break;
     }//end case 2 
+    //Menu case
     case 3:
     {
       background(#CADCF0);
+      //Locks the games keys
       gameStatus.changeLock();
       pushMatrix();
         //Translates the sketch so the baords corner is (0,0)
@@ -211,6 +213,23 @@ void draw()
         fill(#FF0000);
       popMatrix();
       text("PRESS ENTER", width / 2.0f, (height / 2.0f) + (height / 4.0f));
+      
+      /*
+        Checks if enter was hit
+      */
+      
+      if (gameStatus.enter == true)
+      {
+        background(#CADCF0);
+        pushMatrix();
+          //Translates the sketch so the baords corner is (0,0)
+          translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
+          menu.TShape(menu.getTColour());
+        popMatrix();
+        
+        //Menu is created
+        menu.createMenu();
+      }//end if
       break;
     }//end case 3
     case 4:

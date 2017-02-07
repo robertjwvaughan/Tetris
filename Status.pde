@@ -6,6 +6,7 @@ class Status
   private int score;
   private boolean lock;
   private long tetris;
+  private boolean enter;
   
   /*
     A constructor that sets up a games state
@@ -17,7 +18,26 @@ class Status
     shapeIndex = (int)random(0,7);
     downCheck = 0;
     lock = true;
+    enter = false;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to get enter check
+  */
+  
+  boolean getEnter()
+  {
+    return enter;
+  }//end METHOD getEnter()
+  
+  /*
+    Method to change enter check
+  */
+  
+  void setEnter(boolean change)
+  {
+    enter = change;
+  }//end METHOD getEnter()
   
   /*
     Method to set Tetris

@@ -77,8 +77,12 @@ void keyPressed()
     {
       if (gameStatus.getLock() == false)
       {
-        changeScreen = 0;
+        gameStatus.setEnter(true);
       }//end if
+      else
+      {
+        menu.menuAction();
+      }//end else 
     }//end if
   }//end if 
 }//end keyPressed
