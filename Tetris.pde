@@ -52,8 +52,15 @@ void setup()
   shape = new Shapes((height - map(50, 0, 384, 0, height)) / 18.0f, 1, 17, (color)random(0,255), 'N');
   changeScreen = 4;
   background(#CADCF0);
+  
+  //object to call menu methods
   menu = new MainMenu((height - map(50, 0, 384, 0, height)) / 18.0f);
+  
+  //Loading leaderboard data
   loadFile();
+  
+  //Sets char inputs to AAA in decimal
+  gameStatus.setChars();
 }//end setup
 
 void draw()
@@ -188,8 +195,11 @@ void draw()
       textAlign(CENTER, TOP);
       text(gameStatus.getScore(), width / 2.0f, height / 2.0f + map(20, 0, 384, 0, height));
       
+      /*
       textAlign(CENTER, CENTER);
       text("Menu - Press B", width / 2.0f, (height / 4.0f) * 3.0f);
+      */
+      menu.getID();
       break;
     }//end case 2 
     //Menu case

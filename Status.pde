@@ -11,6 +11,8 @@ class Status
   private int mChoice;
   private float multi;
   private int leaderCount = 0;
+  private int chars[] = new int[3];
+  private int charTrack;
   
   /*
     A constructor that sets up a games state
@@ -29,6 +31,48 @@ class Status
     multi = 1;
     leaderCount = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to set array
+  */
+  
+  void setChars()
+  {
+    chars[0] = 65;
+    chars[1] = 65;
+    chars[2] = 65;
+    charTrack = 0;
+  }//end METHOD setChars
+  
+  /*
+    Change charTracker
+  */
+  void moveCharTracker(int value)
+  {
+    charTrack = (charTrack + value) % 3;
+  }//end METHOD charTracker()
+  
+  char getChar(int i)
+  {
+    return (char)chars[i];
+  }//end getChar()
+  
+  void changeChar(int value)
+  {
+    if ((chars[charTrack] + value) < 26)
+    {
+      chars[charTrack] = 90;
+    }//end if
+    else if ((chars[charTrack] + value) > 90)
+    {
+      chars[charTrack] = 26;
+    }//end else if
+    else
+    {
+      chars[charTrack] = chars[charTrack] + value;
+      System.out.println("Hey");
+    }//end else
+  }//end getChar()
   
   /*
     Method to increment leader count

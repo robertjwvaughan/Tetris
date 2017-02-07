@@ -155,5 +155,24 @@ void keyPressed()
     }//end if
   }//end if
   
+  if (changeScreen == 2)
+  {
+    if (keyCode == LEFT)
+    {
+      gameStatus.moveCharTracker(-1);
+    }//end if
+    else if(keyCode == RIGHT)
+    {
+      gameStatus.moveCharTracker(1);
+    }//end else if
+    else if (keyCode == UP)
+    {
+      gameStatus.changeChar(-1);
+    }//end if
+    else if(keyCode == DOWN)
+    {
+      gameStatus.changeChar(1);
+    }//end else if
+  }//end if
   
 }//end keyPressed

@@ -174,4 +174,14 @@ class MainMenu
     fill(0);
     text("Menu - Pess B", width / 2.0f, (((height / 4.0f) * 3.f) + height) / 2.0f);
   }//end METHOD leaderBoard()
+  
+  /*
+    Method that draws a users name
+  */
+  void getID()
+  {
+    fill(0);
+    System.out.println(gameStatus.getChar(0) +" "+ gameStatus.getChar(1) +" "+ gameStatus.getChar(2));
+    text(gameStatus.getChar(0)+" "+ gameStatus.getChar(1) +" "+ gameStatus.getChar(2), width / 2.0f, (height / 4.0f) * 3.f);
+  }//end METHOD ge
 }//end CLASS MainMenu
