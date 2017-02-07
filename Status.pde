@@ -7,6 +7,8 @@ class Status
   private boolean lock;
   private long tetris;
   private boolean enter;
+  private boolean menu;
+  private int mChoice;
   
   /*
     A constructor that sets up a games state
@@ -19,7 +21,40 @@ class Status
     downCheck = 0;
     lock = true;
     enter = false;
+    menu = false;
+    mChoice = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to get menu choice
+  */
+  
+  int getChoice()
+  {
+    return mChoice;
+  }//end METHOD getChoice
+  
+  void changeChoice(int value)
+  {
+    mChoice = mChoice + value;
+    mChoice = mChoice % 4;
+  }//end METHOD changeChoice
+  
+  /*
+    Method to retrieve menu check
+  */
+  boolean getMenu()
+  {
+    return menu;
+  }//end METHOD getMenu
+  
+  /*
+    Method to change menu check
+  */
+  void setMenu(boolean value)
+  {
+    menu = value;
+  }//end METHOD setMenu()
   
   /*
     Method to get enter check

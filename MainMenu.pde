@@ -88,26 +88,50 @@ class MainMenu
   {
     backBoard.defaultBackground();
     
+    gameStatus.setMenu(true);
+    
+    ArrayList<Float> yValues = new ArrayList<Float>();
+    ArrayList<Float> y = new ArrayList<Float>();
+    ArrayList<String> modes = new ArrayList<String>();
+    
+    y.add(0.0f);
+    y.add(((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+    y.add(((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f));
+    y.add((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 3.0f);
+    
+    yValues.add((0 + ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) / 2.0f);
+    yValues.add(((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f)) / 2.0f);
+    yValues.add(((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 3.0f)) / 2.0f);
+    yValues.add(((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 3.0f + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 4.0f)) / 2.0f);
+    
+    modes.add("PLAY");
+    modes.add("LEADERBOARD");
+    modes.add("CONTROLS");
+    modes.add("EXIT");
+    
      pushMatrix();
         //Translates the sketch so the baords corner is 0,half
         translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f));
         noStroke();
         textAlign(CENTER, CENTER);
         
-        rect(0, 0, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, (height - (map(50, 0, 384, 0, height))) / 2.0f);
-        
-        text("PLAY", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, (0 + ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) / 2.0f);
-        
-        rect(0, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
-        
-        text("LEADERBOARD", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f)) / 2.0f);
-        
-        rect(0, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
-        
-        text("LEADERBOARD", ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) + ((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f)) / 2.0f);
-        
-        rect(0, (((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 3.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
-        
+        for (int i = 0; i < modes.size(); i++)
+        {
+          if (i == gameStatus.getChoice())
+          {
+            fill(#FF6600);
+            rect(0 + 1, y.get(i), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f  - 2.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+            fill(#66CCFF);
+            text(modes.get(i), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, yValues.get(i));
+          }//end if
+          else
+          {
+            fill(#CADCF0);
+            rect(0 + 1, y.get(i), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f - 2.0f, ((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
+            fill(#FF0000);
+            text(modes.get(i), ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f / 2.0f, yValues.get(i));
+          }//end else
+        }//end for
         
      popMatrix();
   }//end methodCreate menu

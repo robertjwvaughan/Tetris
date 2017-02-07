@@ -84,5 +84,32 @@ void keyPressed()
         menu.menuAction();
       }//end else 
     }//end if
-  }//end if 
+    
+    //Condition if user is on the menu
+    if (gameStatus.getMenu())
+    {
+      switch(gameStatus.getChoice())
+      {
+        case 0:
+        {
+        }//end case 0 (play)
+      }//end switch
+    }//end if
+  }//end if
+  
+  if (keyCode == UP)
+  {
+    if (gameStatus.getMenu())
+    {
+      gameStatus.changeChoice(-1);
+    }//end if
+  }//end if
+  
+  if (keyCode == DOWN)
+  {
+    if (gameStatus.getMenu())
+    {
+      gameStatus.changeChoice(1);
+    }//end if
+  }//end if
 }//end keyPressed
