@@ -79,10 +79,6 @@ void keyPressed()
       {
         gameStatus.setEnter(true);
       }//end if
-      else
-      {
-        menu.menuAction();
-      }//end else 
     }//end if
     
     //Condition if user is on the menu
@@ -96,12 +92,26 @@ void keyPressed()
           gameStatus.setMenu(false);
           break;
         }//end case 0 (play)
+        case 1:
+        {
+          changeScreen = 6;
+          break;
+        }//end case 1 (leaderboard)
         case 3:
         {
           //Exits program
           exit();
         }//end case 3
       }//end switch
+    }//end if
+    
+    //Return to menu from game over
+    if (changeScreen == 2)
+    {
+      changeScreen = 3;
+      gameStatus.setMenu(true);
+      liveShape.clear();
+      copyShape.clear();
     }//end if
   }//end if
   
@@ -123,11 +133,27 @@ void keyPressed()
   
   if (keyCode == LEFT)
   {
-    
+    if (changeScreen == 6 && leaderBoard.size() > 0)
+    {
+      gameStatus.leaderCount(-1);
+    }//end if
   }//end if
   
   if (keyCode == RIGHT)
   {
-    
+    if (changeScreen == 6 && leaderBoard.size() > 0)
+    {
+      gameStatus.leaderCount(1);
+    }//end if
   }//end if
+  
+  if (key == 'b' || key == 'B')
+  {
+    if (changeScreen == 6)
+    {
+      changeScreen = 3;
+    }//end if
+  }//end if
+  
+  
 }//end keyPressed

@@ -10,7 +10,7 @@ class Status
   private boolean menu;
   private int mChoice;
   private float multi;
-  private int leaderCount;
+  private int leaderCount = 0;
   
   /*
     A constructor that sets up a games state
@@ -29,6 +29,35 @@ class Status
     multi = 1;
     leaderCount = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Method to increment leader count
+  */
+  
+  void leaderCount(int value)
+  {
+    if ((leaderCount + value) < 0)
+    {
+      leaderCount = leaderBoard.size() - 1;
+    }//end if
+    else if ((leaderCount + 1) == (leaderBoard.size()))
+    {
+      leaderCount = 0;
+    }//end else if
+    else
+    {
+      leaderCount = leaderCount + value;
+    }//end else
+  }//end METHOD leaderCount()
+  
+  /*
+    Method to return leader count
+  */
+  
+  int getLeader()
+  {
+    return leaderCount;
+  }//end METHOD leaderCount()
   
   /*
     Method to add to score
@@ -241,4 +270,30 @@ class Status
   {
     downCheck++;
   }//end METHOD downCheckZero()
+  
+  /*
+    Sort List
+  */
+  
+  void sortList()
+  {
+    ArrayList<Leaderboards> newScores = new ArrayList<Leaderboards>();
+    
+    //Checks if the leader board contains 
+    if (leaderBoard.size() == 0)
+    {
+      
+    }//end if
+    else
+    {
+      
+    }//end else
+    for (int i = 0; i < list.size(); i++)
+    {
+      if (getScore() == 0)
+      {
+        
+      }//end if
+    }//end for
+  }//end METHOD sortList()
 }//enn CLASS Status

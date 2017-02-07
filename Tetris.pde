@@ -187,6 +187,9 @@ void draw()
       text("SCORE", width / 2.0f, height / 2.0f);
       textAlign(CENTER, TOP);
       text(gameStatus.getScore(), width / 2.0f, height / 2.0f + map(20, 0, 384, 0, height));
+      
+      textAlign(CENTER, CENTER);
+      text("Menu - Press B", width / 2.0f, (height / 4.0f) * 3.0f);
       break;
     }//end case 2 
     //Menu case
@@ -265,6 +268,7 @@ void draw()
       backBoard.defaultBackground();
       
       menu.leaderBoard();
+      break;
     }//end case 6 (leaderbaord display)
   }//end switch
 }//end draw
