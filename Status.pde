@@ -59,13 +59,13 @@ class Status
   
   void changeChar(int value)
   {
-    if ((chars[charTrack] + value) < 26)
+    if ((chars[charTrack] + value) < 65)
     {
       chars[charTrack] = 90;
     }//end if
     else if ((chars[charTrack] + value) > 90)
     {
-      chars[charTrack] = 26;
+      chars[charTrack] = 65;
     }//end else if
     else
     {
