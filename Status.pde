@@ -400,7 +400,7 @@ class Status implements trackStatus
   }//end METHOD downCheckZero()
   
   /*
-    Sort List
+    Sort Leader List
   */
   
   void sortList()
