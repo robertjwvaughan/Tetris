@@ -138,6 +138,7 @@ class MainMenu
     ArrayList<Float> y = new ArrayList<Float>();
     ArrayList<String> modes = new ArrayList<String>();
     
+    //Data nad values required for the drawing of th menu
     y.add(0.0f);
     y.add(((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f);
     y.add(((((height - (map(50, 0, 384, 0, height))) / 2.0f) / 4.0f) * 2.0f));

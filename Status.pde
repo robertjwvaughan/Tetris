@@ -35,7 +35,7 @@ class Status implements trackStatus
   }//end CONSTRUCTOR Status
   
   /*
-    Restart game
+    Restart game data
   */
   
   void restartData()
@@ -377,7 +377,7 @@ class Status implements trackStatus
   */
   void downCheck()
   {
-    if (downCheck % 60 == 0)
+    if (downCheck % 30 == 0)
     {
       generalDown();
     }

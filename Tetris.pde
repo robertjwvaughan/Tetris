@@ -131,6 +131,8 @@ void draw()
       changeScreen = 1;
       break;
     }//end case 0
+    
+    //Case that handles the updating of a shape
     case 1:
     {
       //Stops into song
@@ -374,6 +376,7 @@ boolean generalDown()
     {
       for (int k = 0; k < liveShape.size(); k++)
       {
+        //Condition to match square with cell
         if((int)cells[i][j].ordinates.x == (int)liveShape.get(k).xy.x && (int)cells[i][j].ordinates.y == (int)liveShape.get(k).xy.y)
         {
           if (i < 17)
@@ -418,7 +421,8 @@ boolean generalDown()
 }
 
 /*
-  Method to 
+  Method to check if a cell is now false or true after
+  the actions of a shope
 */
 
 void checkCells()
@@ -484,6 +488,10 @@ void checkCells()
 }//end METHOD
 /*
   Method to animate Tetris
+*/
+
+/*
+  Method to create a Tetris animation (not used)
 */
 
 void tetris()

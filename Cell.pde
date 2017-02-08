@@ -36,6 +36,7 @@ class Cell extends Board
   {
     oldSquare.square = newSquare.square;
   }//end MEHTHOD getSquare()
+  
   /*
     Method that draws a cells stored square
   */

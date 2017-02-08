@@ -9,6 +9,10 @@ public class Square
   ArrayList<Square> connect = new ArrayList<Square>();
   char pos;
   
+  /*
+    Default constructor
+  */
+  
   Square()
   {
     float lengths = ((height - map(50, 0, 384, 0, height)) / 18.0f);
@@ -159,6 +163,10 @@ public class Square
       }//end default
     }//end swtich
   }//end METHOD boundaryCheck
+  
+  /*
+    Checks if square collide
+  */
   
   boolean clashCheck(Square square, int mult)
   {
