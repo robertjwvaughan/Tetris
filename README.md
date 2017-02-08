@@ -72,6 +72,7 @@ In terms of a challenge, one could can claim that the designing of a game such a
 * Commit failure fix (fix branch)
 * PVectors to store cell and shape co-ordinates
 * Sound generated
+* Translations of the bored to easily align the board of the game
 * Fully Scalable
 
 #Code
