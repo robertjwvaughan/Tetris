@@ -351,7 +351,7 @@ void loadFile()
   //CLearing of data
   leaderBoard.clear();
   
-  System.out.println(t.getRowCount());
+  //System.out.println(t.getRowCount());
   
   for (int i = 0; i < t.getRowCount(); i++)
   {
@@ -445,7 +445,7 @@ void checkCells()
     if(check == 10)
     {
       numLines++;
-      System.out.println("Line Found");
+      //System.out.println("Line Found");
       list.add(i);
     }//end if
   }//end for

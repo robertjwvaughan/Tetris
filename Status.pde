@@ -422,13 +422,13 @@ class Status implements trackStatus
       t.setString(newPos,"User", name);
       t.setInt(newPos,"Score", score);
       
-      System.out.println("Second");
+      //System.out.println("Second");
       
       saveTable(t, "data/leaderboard.csv");
       
       newPos++;
       
-      System.out.println(0);
+      //System.out.println(0);
       return;
     }//end if
     else if(leaderBoard.size() > 0)
@@ -449,7 +449,7 @@ class Status implements trackStatus
           table.setString(newPos ,"User",leaderBoard.get(i).name);
           table.setInt(newPos, "Score", leaderBoard.get(i).score);
           
-          System.out.println(1);
+          //System.out.println(1);
           newPos++;
         }//end if
         else if (getScore() >= leaderBoard.get(i).score && check == true)
@@ -475,7 +475,7 @@ class Status implements trackStatus
         }//end else
       }//end for
       
-      System.out.println("Second");
+      //System.out.println("Second");
       saveTable(table, "data/leaderboard.csv");
       return;
     }//end else if
