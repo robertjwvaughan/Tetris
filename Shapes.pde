@@ -255,7 +255,7 @@ public class Shapes extends Square
       {
         centre(copyShape.get(i));
         i = copyShape.size() + 1;
-        System.out.println("Found Center");
+        //System.out.println("Found Center");
       }//end if
     }//end for
     
@@ -269,9 +269,9 @@ public class Shapes extends Square
       {
         for (int j = 0; j < copyShape.size(); j++)
         {
-          System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
+          //System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
           copyShape.get(j).xy.x += measure;
-          System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
+          //System.out.println("Copy: " + copyShape.get(j).xy.x + " Live: " + liveShape.get(j).xy.x);
         }//end for
       }//end if
       if ((int)copyShape.get(i).xy.x > (int)(measure * 9))
@@ -308,7 +308,7 @@ public class Shapes extends Square
             if (cells[i][j].active == false)
             {
               pass++;
-              System.out.println("HEYYYY");
+              //System.out.println("HEYYYY");
               k = copyShape.size();
               j = 10;
               i = 18;
@@ -342,7 +342,7 @@ public class Shapes extends Square
     {
       connection(centre.connect.get(i), move);
       
-      System.out.println(move.size());
+      //System.out.println(move.size());
       
       for (int j = 0; j < 1; j++)
       {

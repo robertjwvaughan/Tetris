@@ -13,6 +13,7 @@ class Status
   private int leaderCount = 0;
   private int chars[] = new int[3];
   private int charTrack;
+  private int control;
   
   /*
     A constructor that sets up a games state
@@ -30,7 +31,56 @@ class Status
     mChoice = 0;
     multi = 1.25;
     leaderCount = 0;
+    control = 0;
   }//end CONSTRUCTOR Status
+  
+  /*
+    Restart game
+  */
+  
+  void restartData()
+  {
+    score = 0;
+    playing = true;
+    shapeIndex = (int)random(0,7);
+    downCheck = 0;
+    lock = true;
+    enter = true;
+    menu = true;
+    mChoice = 0;
+    multi = 1.25;
+    leaderCount = 0;
+    sound.playSong(playlist.get(0));
+    control = 0;
+  }//end METHOD saveData
+  
+  /*
+    Method to get control index
+  */
+  
+  int getControl()
+  {
+    return control;
+  }//end getControl
+  
+  /*
+    Change controlTracking
+  */
+  void changeControl(int value)
+  {
+    if ((control + value) < 0)
+    {
+      control = 1;
+    }//end if
+    else if ((control + value) > 1)
+    {
+      control = 0;
+    }//end else if
+    else
+    {
+      control = control + value;
+    }//end else
+  }//end METHOD charTracker()
   
   /*
     Method to set array
@@ -49,7 +99,18 @@ class Status
   */
   void moveCharTracker(int value)
   {
-    charTrack = (charTrack + value) % 3;
+    if ((charTrack + value) < 0)
+    {
+      charTrack = 2;
+    }//end if
+    else if((charTrack + value) > 2)
+    {
+      charTrack = 0;
+    }//end if
+    else
+    {
+      charTrack = charTrack + value;
+    }//end else
   }//end METHOD charTracker()
   
   char getChar(int i)
@@ -70,7 +131,7 @@ class Status
     else
     {
       chars[charTrack] = chars[charTrack] + value;
-      System.out.println("Hey");
+      //System.out.println("Hey");
     }//end else
   }//end getChar()
   
@@ -130,7 +191,18 @@ class Status
   
   void changeChoice(int value)
   {
-    mChoice = (mChoice + value) % 4;
+    if (mChoice + value < 0)
+    {
+      mChoice = 3;
+    }//end if
+    else if (mChoice + value > 3)
+    {
+      mChoice = 0;
+    }//end if
+    else
+    {
+      mChoice = mChoice + value;
+    }//end else
   }//end METHOD changeChoice
   
   /*
@@ -317,34 +389,84 @@ class Status
   }//end METHOD downCheckZero()
   
   /*
-    Restart game
-  */
-  
-  void restartData()
-  {
-    score = 0;
-    playing = true;
-    shapeIndex = (int)random(0,7);
-    downCheck = 0;
-    lock = true;
-    enter = true;
-    menu = true;
-    mChoice = 0;
-    multi = 1.25;
-    leaderCount = 0;
-  }//end METHOD saveData
-  
-  /*
     Sort List
   */
   
   void sortList()
   {
     String name = "";
+    int newPos = 0;
     
     name += getChar(0);
     name += getChar(1);
     name += getChar(2);
     
+    boolean check = true;
+    
+    //Check if list is empty
+    if (leaderBoard.size() == 0)
+    {
+      t.addRow();
+      t.setInt(newPos, "Pos", newPos);
+      t.setString(newPos,"User", name);
+      t.setInt(newPos,"Score", score);
+      
+      System.out.println("Second");
+      
+      saveTable(t, "data/leaderboard.csv");
+      
+      newPos++;
+      
+      System.out.println(0);
+      return;
+    }//end if
+    else if(leaderBoard.size() > 0)
+    {
+      Table table = new Table();
+      
+      table.addColumn("Pos");
+      table.addColumn("User");
+      table.addColumn("Score");
+      
+      //Loop to check for values
+      for (int i = 0; i < leaderBoard.size(); i++)
+      {
+        if (leaderBoard.get(i).score > getScore() && check == true)
+        {
+          table.addRow();
+          table.setInt(newPos, "Pos", newPos);
+          table.setString(newPos ,"User",leaderBoard.get(i).name);
+          table.setInt(newPos, "Score", leaderBoard.get(i).score);
+          
+          System.out.println(1);
+          newPos++;
+        }//end if
+        else if (getScore() >= leaderBoard.get(i).score && check == true)
+        {
+          check = false;
+          
+          table.setInt(newPos, "Pos", newPos);
+          table.setString(newPos,"User", name);
+          table.setInt(newPos,"Score", score);
+          
+          i--;
+          newPos++;
+        }//end else
+        else
+        {
+          table.addRow();
+          
+          table.setInt(newPos, "Pos", newPos);
+          table.setString(newPos ,"User",leaderBoard.get(i).name);
+          table.setInt(newPos, "Score", leaderBoard.get(i).score);
+          
+          newPos++;
+        }//end else
+      }//end for
+      
+      System.out.println("Second");
+      saveTable(table, "data/leaderboard.csv");
+      return;
+    }//end else if
   }//end METHOD sortList()
 }//enn CLASS Status

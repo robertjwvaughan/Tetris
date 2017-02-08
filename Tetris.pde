@@ -1,4 +1,4 @@
-import ddf.minim.*;
+import processing.sound.*;
 
 //#CC00FF - Pink (J)
 //#FF6600 - Orange (I)
@@ -17,11 +17,13 @@ Board backBoard;//Tetris board
 Status gameStatus;//Status of the game tracked
 Shapes shape;//Shape object
 MainMenu menu;
+Sound sound;
 //Array list to store objects of squares to create shapes
 ArrayList<Square> liveShape = new ArrayList<Square>();
 ArrayList<Square> copyShape = new ArrayList<Square>();
 //Arraylist to store int values as index for a Tetris line
 ArrayList<Integer> list = new ArrayList<Integer>();
+ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
 ArrayList<Leaderboards> leaderBoard = new ArrayList<Leaderboards>();
 
 Cell cells[][] = new Cell[18][10];
@@ -42,11 +44,16 @@ void setup()
   frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
+  //Loads in font
   font = loadFont("LeelawadeeUI-Bold-48.vlw");
   textFont(font);
+  
   //Creates the board object
   backBoard = new Board(((height - map(50, 0, 384, 0, height)) / 18.0f));
+  //Tracking game object
   gameStatus = new Status();
+  //Sound object
+  sound = new Sound();
   
   //Creates co-ordinates for nodes
   backBoard.nodeDraw();
@@ -59,6 +66,9 @@ void setup()
   
   //Loading leaderboard data
   loadFile();
+  loadSongs();
+  
+  sound.playSong(playlist.get(0));
   
   //Sets char inputs to AAA in decimal
   gameStatus.setChars();
@@ -76,6 +86,7 @@ void draw()
       background(#CADCF0);
       backBoard.defaultBackground();
       gameStatus.downCheckZero();
+      //checkCells();
       //checkCells();
       pushMatrix();
         
@@ -95,7 +106,7 @@ void draw()
         textAlign(CENTER,TOP);
         fill(0);
         
-        System.out.println("Shape call");
+        //System.out.println("Shape call");
         
         for (int i = 17; i >= 0; i--)
         {
@@ -122,6 +133,8 @@ void draw()
     }//end case 0
     case 1:
     {
+      //Stops into song
+      sound.stopSong(playlist.get(0));
       background(#CADCF0);
       //Draws background
       backBoard.defaultBackground();
@@ -148,7 +161,7 @@ void draw()
                 if (cells[i][j].active == false)
                 {
                   changeScreen = 2;//GAme Over
-                  gameStatus.changeState();
+                  //gameStatus.changeState();
                 }//end if
               }//end if
             }//end for
@@ -168,9 +181,9 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
+              cells[i][j].drawSquare();
               fill(255);
               rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
-              cells[i][j].drawSquare();
             }//end if
             else
             {
@@ -186,17 +199,21 @@ void draw()
       {
         shape.copyValues(copyShape.get(i), liveShape.get(i));
       }//end for
-    
+      
+      //Two methods that check whether the shape can go down
       gameStatus.downCheckInc();
       gameStatus.downCheck(); 
       break;
     }
+    
+    //Game over case
     case 2:
     {
       fill(#CADCF0);
       noStroke();
       rectMode(CENTER);
       
+      //Block that covers shapes so text can be read
       rect(width / 2.0f, height / 2.0f, ((height - map(50, 0, 384, 0, height)) / 18.0f) * 10.0f - (map(10, 0, 384, 0, height)), height - (map(150, 0, 384, 0, height)));
       
       textSize(map(30, 0, 683, 0, width));
@@ -208,15 +225,21 @@ void draw()
       textSize(map(25, 0, 683, 0, width));
       text("SCORE", width / 2.0f, height / 2.0f);
       textAlign(CENTER, TOP);
+      
+      //Prints user score of current game
       text(gameStatus.getScore(), width / 2.0f, height / 2.0f + map(20, 0, 384, 0, height));
       
       /*
       textAlign(CENTER, CENTER);
       text("Menu - Press B", width / 2.0f, (height / 4.0f) * 3.0f);
       */
+      
+      //Method that gets the users current game name
       menu.getID();
+      
       break;
     }//end case 2 
+    
     //Menu case
     case 3:
     {
@@ -242,6 +265,7 @@ void draw()
       if (gameStatus.enter == true)
       {
         background(#CADCF0);
+        
         pushMatrix();
           //Translates the sketch so the baords corner is (0,0)
           translate((width / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 5.f, (height / 2.0f) - ((height - map(50, 0, 384, 0, height)) / 18.0f) * 9.f);
@@ -281,12 +305,16 @@ void draw()
       break;
     }//end case 4 (Intro)
     //Case to highlight tetris
+    /*
     case 5:
     {
       //System.out.println("GHEWJHFKLADFHLKAHFLAKSFCHASKLCSALKHCLAK");
       tetris();
       break;
     }//end case 5
+    */
+    
+    //Displays leaderBoard
     case 6:
     {
       background(#CADCF0);
@@ -295,6 +323,14 @@ void draw()
       menu.leaderBoard();
       break;
     }//end case 6 (leaderbaord display)
+    
+    //Controls
+    case 7:
+    {
+      background(#CADCF0);
+      backBoard.defaultBackground();
+      menu.controls();
+    }//end case 7 ()
   }//end switch
 }//end draw
 
@@ -305,10 +341,13 @@ void draw()
 
 void loadFile()
 {
+  t = new Table();
   t = loadTable("leaderboard.csv", "header");
   
   //CLearing of data
   leaderBoard.clear();
+  
+  System.out.println(t.getRowCount());
   
   for (int i = 0; i < t.getRowCount(); i++)
   {
@@ -326,6 +365,7 @@ boolean generalDown()
 {
   int boolCheck = 0;
   
+  //Loops to check is a shape should be marked dead and swapped
   for (int i = 17; i >= 0; i--)
   {
     for (int j = 0; j < 10; j++)
@@ -340,11 +380,6 @@ boolean generalDown()
             {
               gameStatus.swapShapes();
               changeScreen = 0;
-              
-              if (list.size() > 0)
-              {
-                changeScreen = 5;
-              }//end if
               
               return false;
             }//end if
@@ -373,7 +408,6 @@ boolean generalDown()
   else
   {
     gameStatus.swapShapes();
-    checkCells();
     return false;
   }//end else
 }
@@ -397,10 +431,12 @@ void checkCells()
     if(check == 10)
     {
       numLines++;
+      System.out.println("Line Found");
       list.add(i);
     }//end if
   }//end for
   
+  /*
   if (numLines > 0 || list.size() > 0)
   {
     changeScreen = 5;
@@ -409,6 +445,10 @@ void checkCells()
   {
     changeScreen = 0;
   }//end else
+  */
+  
+  //LOOK AT ME
+  changeScreen = 0;
   
   if (numLines == 4)
   {
@@ -474,8 +514,18 @@ void tetris()
     {
       changeScreen = 0;
       frameChange = true;
-      list.clear();
+      //list.clear();
     }
     
    popMatrix();
 }//end METHOF tetris()
+
+/*
+  Method that loads songs into a list
+*/
+
+void loadSongs()
+{
+  playlist.add(new SoundFile(this, "tet1.mp3"));
+  playlist.add(new SoundFile(this, "tet2.mp3"));
+}//end METHOD loadSongs

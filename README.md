@@ -17,7 +17,7 @@ Tetris is a tile-matching puzzle video game and was the first entertainment soft
 # Features
 
 * Menu
-  * 
+  * The menu contains 4 options: Play the game 
 
 * Game
   * 

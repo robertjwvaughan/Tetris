@@ -90,11 +90,17 @@ void keyPressed()
         {
           changeScreen = 0;
           gameStatus.setMenu(false);
+          sound.playSong(playlist.get(1));
           break;
         }//end case 0 (play)
         case 1:
         {
           changeScreen = 6;
+          break;
+        }//end case 1 (leaderboard)
+        case 2:
+        {
+          changeScreen = 7;
           break;
         }//end case 1 (leaderboard)
         case 3:
@@ -112,10 +118,11 @@ void keyPressed()
       liveShape.clear();
       copyShape.clear();
       
-      gameStatus.sortList();
-      loadFile();
+      sound.stopSong(playlist.get(1));
       
-      leaderBoard.clear();
+      gameStatus.sortList();
+      
+      loadFile();
       
       gameStatus.restartData();
       changeScreen = 3;
@@ -144,6 +151,10 @@ void keyPressed()
     {
       gameStatus.leaderCount(-1);
     }//end if
+    else if (changeScreen == 7)
+    {
+      gameStatus.changeControl(-1);
+    }//end else if
   }//end if
   
   if (keyCode == RIGHT)
@@ -152,16 +163,22 @@ void keyPressed()
     {
       gameStatus.leaderCount(1);
     }//end if
+    else if (changeScreen == 7)
+    {
+      gameStatus.changeControl(1);
+    }//end else if
   }//end if
   
+  //Returns from a page to the menu
   if (key == 'b' || key == 'B')
   {
-    if (changeScreen == 6)
+    if (changeScreen == 6 || changeScreen == 7)
     {
       changeScreen = 3;
     }//end if
   }//end if
   
+  //Moves character select
   if (changeScreen == 2)
   {
     if (keyCode == LEFT)

@@ -67,6 +67,50 @@ class MainMenu
   }//end CONSTRUCTOR
   
   /*
+    Method to display controls
+  */
+  
+  void controls()
+  {
+    //Translates the sketch so the baords corner is (0,0)
+    if (gameStatus.getControl() == 0)
+    {
+      textSize(map(20, 0, 683, 0, width));
+      textAlign(CENTER, CENTER);
+      
+      fill(#FF0000);
+      text("GAME", width / 2.0f, (height / 8.0f) * 1.0f);
+      
+      fill(0);
+      textSize(map(17, 0, 683, 0, width));
+      text("LEFT - A KEY", width / 2.0f, (height / 8.0f) * 2.0f);
+      text("RIGHT - D KEY", width / 2.0f, (height / 8.0f) * 3.0f);
+      text("DOWN - S KEY", width / 2.0f, (height / 8.0f) * 4.0f);
+      text("ROTATE - W KEY", width / 2.0f, (height / 8.0f) * 5.0f);
+      text("SLAM - SPACE", width / 2.0f, (height / 8.0f) * 6.0f);
+      
+      text("Menu - B Key", width / 2.0f, (height / 8.0f) * 7.0f);
+    }//end if
+    else
+    {
+      textSize(map(20, 0, 683, 0, width));
+      textAlign(CENTER, CENTER);
+      
+      fill(#FF6600);
+      text("MENU", width / 2.0f, (height / 7.0f) * 1.0f);
+      
+      fill(0);
+      textSize(map(17, 0, 683, 0, width));
+      text("LEFT - LEFT KEY", width / 2.0f, (height / 7.0f) * 2.0f);
+      text("RIGHT - RIGHT KEY", width / 2.0f, (height / 7.0f) * 3.0f);
+      text("DOWN - DOWN KEY", width / 2.0f, (height / 7.0f) * 4.0f);
+      text("APPROVE - ENTER KEY", width / 2.0f, (height / 7.0f) * 5.0f);
+      
+      text("Menu - B Key", width / 2.0f, (height / 7.0f) * 6.0f);
+    }//end else
+  }//ened controls()
+  
+  /*
     Method to draw TShape
   */
   
@@ -182,7 +226,7 @@ class MainMenu
   void getID()
   {
     fill(0);
-    System.out.println(gameStatus.getChar(0) +" "+ gameStatus.getChar(1) +" "+ gameStatus.getChar(2));
+    //System.out.println(gameStatus.getChar(0) +" "+ gameStatus.getChar(1) +" "+ gameStatus.getChar(2));
     text(gameStatus.getChar(0)+" "+ gameStatus.getChar(1) +" "+ gameStatus.getChar(2), width / 2.0f, (height / 4.0f) * 3.f);
   }//end METHOD ge
 }//end CLASS MainMenu
