@@ -39,8 +39,8 @@ boolean frameChange = true;
 
 void setup()
 {
-  //fullScreen();
-  size(683, 384);
+  fullScreen();
+  //size(683, 384);
   frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   
@@ -96,7 +96,7 @@ void draw()
         textAlign(LEFT, BOTTOM);
         textSize(map(15, 0, 683, 0, width));
         fill(0);
-        text("Score: " + gameStatus.getScore(), 0, 0);
+        text("Score: " + gameStatus.getScore() + "  Multi: " + gameStatus.getMulti(), 0, 0);
         
         //backBoard.nodeDraw();
         liveShape.clear();
@@ -114,14 +114,14 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
-              fill(255);
-              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+              //fill(255);
+              //rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
               cells[i][j].drawSquare();
             }//end else
             else
             {
-              fill(0);
-              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+              //fill(0);
+              //rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
             }//end else
           }//end for
         }//end for
@@ -146,8 +146,10 @@ void draw()
         
         textAlign(LEFT, BOTTOM);
         textSize(map(15, 0, 683, 0, width));
+        
+        //Displays score
         fill(0);
-        text("Score: " + gameStatus.getScore(), 0, 0);
+        text("Score: " + gameStatus.getScore() + "  Multi: " + gameStatus.getMulti(), 0, 0);
         
         //Game Over check
         for (int i = 0; i < 2; i++)
@@ -182,13 +184,13 @@ void draw()
             if (cells[i][j].active == false)
             {
               cells[i][j].drawSquare();
-              fill(255);
-              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+              //fill(255);
+              //rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
             }//end if
             else
             {
-              fill(0);
-              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+              //fill(0);
+              //rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
             }//end else
           }//end for
         }//end for
@@ -380,7 +382,7 @@ boolean generalDown()
             {
               gameStatus.swapShapes();
               changeScreen = 0;
-              
+              checkCells();
               return false;
             }//end if
           }//end if
@@ -389,6 +391,7 @@ boolean generalDown()
     }//end for
   }//end for
   
+  //Checks if the shape can move down
   for (int i = 0; i < liveShape.size(); i++)
   {
     if (false == liveShape.get(i).boundaryCheck('d'))
@@ -397,6 +400,7 @@ boolean generalDown()
     }//end if
   }//end for
   
+  //Shape moves down or new shape is drawn
   if (boolCheck == 0)
   {
     for (int i = 0; i < liveShape.size(); i++)
@@ -408,15 +412,21 @@ boolean generalDown()
   else
   {
     gameStatus.swapShapes();
+    checkCells();
     return false;
   }//end else
 }
+
+/*
+  Method to 
+*/
 
 void checkCells()
 {
   int numLines = 0;
   list.clear();
-  for (int i = 17; i >= 0; i--)
+  
+  for (int i = 0; i < 18; i++)
   {
     int check = 0;
     
@@ -447,12 +457,12 @@ void checkCells()
   }//end else
   */
   
-  //LOOK AT ME
   changeScreen = 0;
   
+  //Increases multiplier
   if (numLines == 4)
   {
-    //stop();
+    gameStatus.incMulti();
   }//end if
   
   //System.out.println(list.size() + "HUSND");

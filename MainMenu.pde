@@ -210,7 +210,7 @@ class MainMenu
       gameStatus.getLeader();
       
       fill(#FF0000);
-      text("#" + leaderBoard.get(gameStatus.getLeader()).pos, width / 2.0f, (height / 4.0f) * 1.f);
+      text("#" + (leaderBoard.get(gameStatus.getLeader()).pos + 1), width / 2.0f, (height / 4.0f) * 1.f);
       text(leaderBoard.get(gameStatus.getLeader()).name, width / 2.0f, (height / 4.0f) * 2.f);
       text(leaderBoard.get(gameStatus.getLeader()).score, width / 2.0f, (height / 4.0f) * 3.f);
     }//end else

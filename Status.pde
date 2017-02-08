@@ -1,4 +1,4 @@
-class Status
+class Status implements trackStatus
 {
   private boolean playing;
   private int shapeIndex;
@@ -52,6 +52,9 @@ class Status
     leaderCount = 0;
     sound.playSong(playlist.get(0));
     control = 0;
+    liveShape.clear();
+    copyShape.clear();
+    backBoard.nodeDraw();
   }//end METHOD saveData
   
   /*
@@ -179,6 +182,14 @@ class Status
   {
     multi += .25;
   }//end METHOD multi
+  
+  /*
+    Returns multiplier
+  */
+  float getMulti()
+  {
+    return multi;
+  }//end METHOD getMulti()
   
   /*
     Method to get menu choice
