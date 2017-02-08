@@ -49,12 +49,14 @@ Tetris is a tile-matching puzzle video game and was the first entertainment soft
 * Controls
   * The controls page is similar to the Leaderboard where they are multiple pages of it. Each 'page' shows the controls for each unique gameplay instance. Therefore an 'e-Manual' is thus created for the user.
 
+# Key Notes  
+
 * Dynamic algorithm that handles colision for all shapes (No hard code)
 * Status class host private fields for it is senitive data
 * A branch known as 'test' was created to refacture code by 400 lines to end hard-coded shape rotations
 * Lerp fade in affect at the start of the game
 * Tetris animation when sound is played
-* Interface for necessary methods
+* Interface for necessary method signatures
 * Polymorphism with ArrayLists
 * File I/O with Leaderboard
 * User input with entering their game name
