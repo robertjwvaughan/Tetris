@@ -57,7 +57,10 @@ In terms of a challenge, one could can claim that the designing of a game such a
 
 * Controls
   * The controls page is similar to the Leaderboard where they are multiple pages of it. Each 'page' shows the controls for each unique gameplay instance. Therefore an 'e-Manual' is thus created for the user.
-  
+
+* Shapes
+  * Each shape has a center square that all other connecting squares rotate around. This was to prevent hardcoding each shapes possible instance. With the use of recursive algorithms, a shape can translate its next clockwise rotation.
+ 
 # Key Notes  
 
 * Dynamic algorithm that handles colision for all shapes (No hard code)
@@ -81,3 +84,4 @@ In terms of a challenge, one could can claim that the designing of a game such a
 * [Border check](https://github.com/robertjwvaughan/Tetris/blob/master/Square.pde#L122)
 * [Check to see if there are full lines within the code](https://github.com/robertjwvaughan/Tetris/blob/master/Tetris.pde#L423)
 * [Sort LeaderBoard](https://github.com/robertjwvaughan/Tetris/blob/master/Status.pde#L402)
+* [Recursive algorithm to move squares when rotated](https://github.com/robertjwvaughan/Tetris/blob/master/Shapes.pde#L336)

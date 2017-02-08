@@ -116,8 +116,8 @@ void draw()
           {
             if (cells[i][j].active == false)
             {
-              fill(255);
-              rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
+              //fill(255);
+              //rect((float)j * (height - map(50, 0, 384, 0, height)) / 18.0f, (float)i * (height - map(50, 0, 384, 0, height)) / 18.0f, 5, 5);
               cells[i][j].drawSquare();
             }//end else
             else
