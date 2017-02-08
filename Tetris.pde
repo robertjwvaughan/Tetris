@@ -39,8 +39,9 @@ boolean frameChange = true;
 
 void setup()
 {
-  fullScreen();
-  //size(683, 384);
+  //fullScreen();
+  size(683, 384);
+  //size(384, 384);
   frameRate(60);
   //Square x = new Square((height - map(50, 0, 384, 0, height)) / 18.0f);
   

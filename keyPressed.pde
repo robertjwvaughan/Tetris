@@ -64,7 +64,7 @@ void keyPressed()
   
   if ((keyCode == ' '))
   {
-    if (changeScreen != 2)
+    if (changeScreen == 0 || changeScreen == 1)
     {
       while(false != generalDown()  && gameStatus.gameState());
     }//end if
