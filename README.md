@@ -67,3 +67,4 @@ Tetris is a tile-matching puzzle video game and was the first entertainment soft
 * Commit failure fix (fix branch)
 * PVectors to store cell and shape co-ordinates
 * Sound generated
+* Fully Scalable
