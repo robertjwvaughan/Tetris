@@ -148,7 +148,7 @@ class Status implements trackStatus
     {
       leaderCount = leaderBoard.size() - 1;
     }//end if
-    else if ((leaderCount + 1) == (leaderBoard.size()))
+    else if ((leaderCount + value) == (leaderBoard.size()))
     {
       leaderCount = 0;
     }//end else if

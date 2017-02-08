@@ -64,8 +64,11 @@ void keyPressed()
   
   if ((keyCode == ' '))
   {
-    while(false != generalDown()  && gameStatus.gameState());
-  }
+    if (changeScreen != 2)
+    {
+      while(false != generalDown()  && gameStatus.gameState());
+    }//end if
+  }//end if
   
   /*
     COndition for if the ENTER key is hit
