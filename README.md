@@ -13,7 +13,7 @@ Towards the end of the first semester of the 2016/2017 academic year to design a
 ## Why
 Tetris is a tile-matching puzzle video game and was the first entertainment software exported from the USSR. When Tetris finally made its way to the Nintendo Entertainment System, the game became apart of a elite grouping of games that created interest in the video-game market across worldwide territories. The games simplistic yet restrictive rules create memorable enjoyment for a majority of players thus became a classic. I believed trying to recreate such a classic would be a interesting challenge to undertake.
 
-In terms of a challenge, one could can claim that the designing of a game such a Tetris, requires a developer to take into account the movement of of shapes and how they are handled, even when they are marked dead. 
+In terms of a challenge, one could can claim that the designing of a game such a Tetris, requires a developer to take into account the movement of of shapes and how they are handled, even when they are marked dead. The game takes places within a confinded 2-D evironment. Therefore, the logic of how each shape affects the game must be considered, creating a challenge for a developer.
 
 # Features
 
